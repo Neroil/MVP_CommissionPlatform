@@ -55,7 +55,7 @@ Mon public cible regroupe des adultes âgés de 18 à 50 ans, souhaitant soit co
 La cible géographique de la plateforme est le marché occidental, comprenant l'Europe et les Amériques, où la culture de la commission d'œuvres artistiques est déjà bien ancrée.  
 
 == Les différentes personae
-=== _Émilie_
+=== Émilie
 Émilie, 29 ans, est une artiste hobbyiste qui travaille dans les ressources humaines. Durant son temps libre, elle aime dessiner, notamment des personnages humains et anthropomorphes dans un style fantasy. Depuis trois ans, elle propose ses services de commission en ligne.  
 
 *Ses frustrations :*
@@ -68,7 +68,7 @@ La cible géographique de la plateforme est le marché occidental, comprenant l'
 - Un *système de gestion des commandes* plus structuré et sécurisé.  
 - Une *meilleure visibilité* pour toucher un public plus large.  
 
-=== _Ines_  
+=== Ines 
 Ines, 21 ans, est étudiante en informatique et passionnée par sa collection d'illustrations de ses personnages originaux (OC). Elle adore les mettre en scène dans différentes situations et consacre la majorité de son argent de poche aux commissions.  
 
 *Ses frustrations :*
@@ -81,7 +81,7 @@ Ines, 21 ans, est étudiante en informatique et passionnée par sa collection d'
 - Un système où elle peut voir immédiatement quels artistes sont *disponibles pour une commission*.  
 - Une *interface intuitive* qui évite d'avoir à chercher pendant des heures sur différentes plateformes.  
 
-=== _Elliott_
+=== Elliott
 Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de personnages et d'environnement pour les campagne DND. Il est actuellement au chômage donc outre sa recherche de travaille, il dessine beaucoup. 
 
 *Ses frustrations :*
