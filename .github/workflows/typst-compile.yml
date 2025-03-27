@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'typst/**'
+      - 'report/**'
     paths-ignore:
       - 'report.pdf'
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
         uses: typst-community/setup-typst@v4.0.2
 
       - name: Compile Typst Document
-        run: typst compile typst/main.typ report.pdf
+        run: typst compile report/main.typ report.pdf
 
       - name: Commit and Push PDF
         run: |
