@@ -86,7 +86,7 @@ Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de p
 - Elliott est très timide, il aime très peu la communications et veut la limiter au maximum syndical. Il avait vu qu'un site fonctionnait de cette manière (Skeb) mais qu'il acceptait seulement les artistes ayant un compte bancaire japonais...
 - 
 
-
+= Mise en place de la "Landing Page"
 
 
 
