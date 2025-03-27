@@ -88,6 +88,8 @@ Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de p
 
 = Mise en place de la "Landing Page"
 
+Dans le cadre du cours du 27.03.2025, il a fallu mettre en place une landing page du type "hello world"
+
 
 
 
