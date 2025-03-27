@@ -1,4 +1,4 @@
-baseURL = 'https://neroil.github.io/'
+baseURL = 'https://neroil.github.io/MVP_CommissionPlatform/'
 languageCode = 'en-us'
 title = 'MVP Commission Platform'
 theme = 'spectral'
