@@ -11,6 +11,9 @@
   language: "fr",
   it
 )
+#show heading.where(level: 3): it => [
+  #pad(bottom: 0.3em)[#text(style: "italic", weight: "bold", size: 1.1em, fill: blue, it.body)]
+]
 
 = Introduction
 
@@ -52,7 +55,6 @@ Mon public cible regroupe des adultes âgés de 18 à 50 ans, souhaitant soit co
 La cible géographique de la plateforme est le marché occidental, comprenant l'Europe et les Amériques, où la culture de la commission d'œuvres artistiques est déjà bien ancrée.  
 
 == Les différentes personae
-#set heading(level: 3, numbering: none)
 === _Émilie_
 Émilie, 29 ans, est une artiste hobbyiste qui travaille dans les ressources humaines. Durant son temps libre, elle aime dessiner, notamment des personnages humains et anthropomorphes dans un style fantasy. Depuis trois ans, elle propose ses services de commission en ligne.  
 
@@ -84,7 +86,6 @@ Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de p
 
 *Ses frustrations :*
 - Elliott est très timide, il aime très peu la communications et veut la limiter au maximum syndical. Il avait vu qu'un site fonctionnait de cette manière (Skeb) mais qu'il acceptait seulement les artistes ayant un compte bancaire japonais...
-- 
 
 = Mise en place de la "Landing Page"
 
