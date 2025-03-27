@@ -32,4 +32,4 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.DEPLOY_KEY }}
-          publish_dir: ./commission_platform_landing/public
+          publish_dir: ./public
