@@ -12,7 +12,7 @@
   it
 )
 #show heading.where(level: 3): it => [
-  #pad(bottom: 0.3em)[#text(style: "italic", weight: "bold", size: 1.1em, fill: blue, it.body)]
+  #pad(bottom: 0.3em)[#text(style: "italic", weight: "bold", size: 1em, fill: blue, it.body)]
 ]
 
 = Introduction
@@ -90,6 +90,26 @@ Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de p
 = Mise en place de la "Landing Page"
 
 Dans le cadre du cours du 27.03.2025, il a fallu mettre en place une landing page du type "hello world"
+
+
+
+= Les interviews 
+
+Dans cette rubrique, je fais faire un petit court résumé des différents interview que j'ai pu avoir.
+
+== 31 Mars 2025 - Artiste occasionnel 
+
+=== Processus de Commission & Usage des Plateformes  
+L'interviewé réalise 3 à 6 commissions par an, principalement pour des amis et connaissances. Il utilise surtout Discord pour gérer ses commandes, annonçant occasionnellement sa disponibilité sur Twitter et Fur Affinity. Son acquisition de clients repose essentiellement sur le bouche-à-oreille.  
+
+=== Défis des Plateformes & Considérations  
+L'interviewé apprécie le modèle centralisé de Skeb et vGen mais critique le manque de catégorisation efficace de vGen, qui semble trop axé sur le style anime. Il propose un système de sous-communautés similaire à Twitch pour mieux organiser les artistes. Il souligne aussi la croissance de la communauté furry, la communauté dont il fait partie, et son besoin d'une meilleure représentation sur ces plateformes.  
+
+=== Freins à l'Adoption & Préférences de Paiement  
+Un obstacle majeur pour les nouvelles plateformes est d'atteindre une masse critique d'utilisateurs. Selon l'interviewé, un artiste réalisant au moins cinq commissions par mois tirerait un réel bénéfice d'une plateforme spécialisée. Malheureusement, vu son nombre de dessin par ans assez faible, il ne pense pas s'embêter à utiliser ce genre de plateforme. Il utilise PayPal malgré ses frais élevés, privilégiant la familiarité à des alternatives comme Stripe.  
+
+=== Connexion Humaine vs. Automatisation  
+L'interviewé apprécie les échanges personnels dans le processus de commission tout en souhaitant une meilleure organisation. Il estime qu'une plateforme idéale doit allier structure et messagerie efficace pour préserver l'aspect communautaire. Ca à l'air d'être très important pour lui. 
 
 
 
