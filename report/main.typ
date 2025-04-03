@@ -82,15 +82,21 @@ Ines, 21 ans, est étudiante en informatique et passionnée par sa collection d'
 - Une *interface intuitive* qui évite d'avoir à chercher pendant des heures sur différentes plateformes.  
 
 === Elliott
-Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de personnages et d'environnement pour les campagne DND. Il est actuellement au chômage donc outre sa recherche de travaille, il dessine beaucoup. 
+Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de personnages et d'environnement pour les campagnes DND (Donjon Et Dragon). Il est actuellement au chômage donc outre sa recherche de travaille, il dessine beaucoup. 
 
 *Ses frustrations :*
-- Elliott est très timide, il aime très peu la communications et veut la limiter au maximum syndical. Il avait vu qu'un site fonctionnait de cette manière (Skeb) mais qu'il acceptait seulement les artistes ayant un compte bancaire japonais...
+- Elliott est très timide, il aime très peu la communications et veut la limiter au maximum syndical. Il avait vu qu'un site fonctionnait de cette manière (Skeb) mais que ce site acceptait seulement les artistes ayant un compte bancaire japonais...
+- Malheureusement, faire de la pub pour son art n'est vraiment pas son fort, il reste dans son coin et espère que des personnes le contacte pour pouvoir les dessiner. 
+- Il est dûr pour lui de trouver les prix d'autres artistes donc il ne sait pas trop comment évaluer ses propres oeuvres. Il a tendance à se sous-évaluer. 
+
+*Ce qu'il recherche :*
+- Un site lui permettant d'être découvert sans devoir faire ça pub sur des réseaux tel que Twitter et DeviantArt. 
+- Une interface minimisant les interactions entre le client et l'artiste, pas de communication, pas de problème. (Il veut aussi éviter l'effet lié aux éditions de son art à la rallonge)
+- Vu qu'il dessine beaucoup, il voudrait aussi que ce site lui permette de s'organiser. Plus besoin d'utiliser 2-3 sites différents pour faire cela.
 
 = Mise en place de la "Landing Page"
 
 Dans le cadre du cours du 27.03.2025, il a fallu mettre en place une landing page du type "hello world"
-
 
 
 = Les interviews 
