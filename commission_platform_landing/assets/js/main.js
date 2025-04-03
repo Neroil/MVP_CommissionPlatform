@@ -47,7 +47,8 @@
 		$('.scrolly')
 			.scrolly({
 				speed: 1500,
-				offset: $header.outerHeight()
+				offset: $header.outerHeight(),
+				passive: true
 			});
 
 	// Menu.
@@ -118,39 +119,6 @@
 					});
 			});
 
-			// Add to main.js at the end of the document ready function
-			function removeUnusedCSS() {
-				const allElements = document.querySelectorAll('*');
-				const usedSelectors = new Set();
-
-				// Get all stylesheets
-				const sheets = document.styleSheets;
-				try {
-					for (let i = 0; i < sheets.length; i++) {
-						const rules = sheets[i].cssRules || sheets[i].rules;
-						for (let j = 0; j < rules.length; j++) {
-							if (rules[j].selectorText) {
-								const selector = rules[j].selectorText;
-								try {
-									if (document.querySelector(selector)) {
-										usedSelectors.add(selector);
-									}
-								} catch (e) {
-									// Invalid selector, skip
-								}
-							}
-						}
-					}
-				} catch (e) {
-					// Cross-origin stylesheet, can't access rules
-				}
-
-				// Log used selectors for development
-				console.log('Used CSS selectors:', usedSelectors);
-			}
-
-// Call on window load when all resources are loaded
-			window.addEventListener('load', removeUnusedCSS);
 		});
 
 		// Add some CSS for our animation
