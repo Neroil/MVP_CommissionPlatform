@@ -14,13 +14,27 @@
   #pad(bottom: 0.3em)[#text(style: "italic", weight: "bold", size: 1em, fill: blue, it.body)]
 ]
 
+#set page(margin: (left: 2.5cm, right: 2.5cm))
+
+// Modifier la taille du texte si souhaité
+#set text(size: 11pt)
+
 = Introduction
 
-Dans le contexte du cours de MVP (Minimum Viable Product), ce rapport présente le développement d'une plateforme web destinée à faciliter les commissions artistiques entre clients et artistes.
+// ÉVALUATION - Critère 1 : Qualité de présentation de la problématique, projet et objectifs
+// ✓ BIEN : Problématique claire avec double perspective (client/artiste)
+// ✓ BIEN : Objectifs définis avec les 3 axes principaux
+// ⚠️ ATTENTION : Définition du terme "commission" utile mais pourrait être plus tôt dans le document
+
+Dans le contexte du cours de MVP (Minimum Viable Product), ce rapport présente le développement d'une plateforme web destinée à faciliter les relations clients/artistes dans le contexte de commissions d'oeuvres.
+
+Dans ce document, j'utiliserai fréquemment le terme "commission" avec deux sens distincts :
+1. Son sens usuel : un acteur perçoit une commission sous forme de montant fixe ou de pourcentage
+2. Son sens dans le monde de l'art : le fait de commander une œuvre personnalisée à un artiste
 
 == Problématique
 
-Il est difficile de trouver des artistes pour des commandes personnalisées. Que ce soit pour une image de profil, une illustration de personnage ou tout autre projet, les clients manquent souvent d'outils pour découvrir facilement des artistes adaptés à leurs besoins, budget, temps, etc.
+La recherche d'artiste pour la création d'oeuvre personnalisée est difficile. Que ce soit pour une image de profil, une illustration de personnage ou tout autre projet, les clients manquent souvent d'outils pour découvrir facilement des artistes adaptés à leurs besoins, budget, temps, etc.
 
 D'un autre côté, les artistes rencontrent des difficultés pour trouver des clients et gérer leurs commandes de manière professionnelle. Actuellement, beaucoup passent par des échanges informels sur des plateformes comme Discord ou X, avec des paiements souvent gérés via PayPal, ce qui peut manquer de transparence et de sécurité.
 
@@ -31,30 +45,47 @@ L'objectif est de créer une plateforme centralisée qui facilite :
 - La gestion des échanges et des paiements
 - L'organisation des commissions de manière plus fluide et professionnelle
 
-Dans ce document, j'utiliserai fréquemment le terme "commission" avec deux sens distincts :
-1. Son sens usuel : un acteur perçoit une commission sous forme de montant fixe ou de pourcentage
-2. Son sens dans le monde de l'art : le fait de commander une œuvre personnalisée à un artiste
-
 Pour rendre cette application viable, différents mécanismes pourraient être mis en place comme par exemple une prise d'une commission (si possible moins que 4%) ou bien encore la mise en place d'un système d'abonnements.
 
 = Membres de l'équipe
 
-Ce projet a été réalisé individuellement par Edwin Häffner, étudiant en informatique à l'HEIG-VD.
+// ÉVALUATION - Critère 2 : Qualité présentation membres équipe, rôles et compétences
+// ✓ BIEN : Compétences listées clairement
+// ⚠️ ATTENTION : Projet individuel donc section courte, mais complète
+
+Ce projet a été réalisé individuellement par moi-même, Edwin Häffner, étudiant en informatique logicielle à l'HEIG-VD.
 
 *Compétences apportées :*
-- Développement web (HTML, CSS, JavaScript)
-- Bases de données
+- Développement d'application web (Utilisation de framework t.q. Quarkus, notion de frontend avec React, etc. Gestion de base de donnée)
 - Interface utilisateur et expérience utilisateur
 - Gestion de projet
-
+- Connaissance sur le sujet (Artiste hobbyiste)
 
 = Recherche, choix et justification de l'idée
+
+// ÉVALUATION - Critère 3 : Qualité recherche, choix et justification de l'idée
+// ⚠️ ATTENTION : Section trop courte, manque d'analyse concurrentielle approfondie
+// ⚠️ ATTENTION : Pas de comparaison détaillée avec Skeb, vGen, autres plateformes
+// ⚠️ ATTENTION : Justification basée sur observation personnelle, manque de données
 
 Le projet est de mettre à disposition une plateforme web qui permet de faire le lien entre _"commissionneur"_ et artiste pour faciliter cette communication. Cette plateforme doit aussi pouvoir facilement découvrir des artistes qui seraient disponibles qu'on aurait pas forcément trouvé sans son aide.
 
 L'idée est née de l'observation personnelle des difficultés rencontrées dans l'écosystème actuel des commissions artistiques, où les transactions se font de manière dispersée entre plusieurs plateformes non spécialisées.
 
+== Recherche des plateformes déjà existantes / concurrence
+
+L'idée vient du constat qu'il existe dans mon cercle personnel une plateforme que beaucoup de personnes utilisent, Skeb. Cette plateforme est exactement le type de plateforme que je cherche mais elle a un très grand défaut : Seuls les artistes japonais peuvent s'y inscrire pour vendre leur art. 
+
+Cette réstriction géographique viens du fait que le moyen de paiement utilisé joue avec le système bancaire japonais, donc quiquonque ne disposant pas d'un tel compte se trouve dans l'impossiblité d'utiliser cette plateforme. Cette restriction n'est pas présente pour les clients vu qu'on peut utiliser une carte de crédit pour effectuer des paiements sur cette plateforme. 
+
+Ensuite un concurrent assez récent, VGen, existe mais j'ai trouvé que quasi personne ne l'utilisait dans mes cercles d'amis plus ou moins proche, donc le but de ce MVP est d'aussi comprendre pourquoi les gens n'utilisent pas une telle plateforme. 
+
 = Identification du public cible et personae
+
+// ÉVALUATION - Critère 4 : Qualité identification public cible avec énumération personae
+// ✓ EXCELLENT : 3 personae très détaillées et réalistes
+// ✓ BIEN : Frustrations et besoins bien définis
+// ✓ BIEN : Diversité des profils (hobbyiste, passionnée, introverti)
 
 Mon public cible regroupe des adultes âgés de 18 à 50 ans, souhaitant soit commander des œuvres auprès d'artistes, soit proposer leurs services en tant qu'artistes indépendants.
 
@@ -103,14 +134,65 @@ Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de p
 
 = Wireframes/mockups des fonctionnalités clés
 
-_[Section à compléter avec les wireframes et mockups développés]_'
+== Démarche de conception
+
+Lors de ce projet, j'ai essayé de faire un mockup en utilisant Penpot mais après quelques jours d'essai je n'ai pas réussi à avoir quelque chose de satisfaisant. Donc au final j'ai préferé formuler des besoins en texte et ensuite de les réaliser directement sur le frontend programmaticalement et aussi à l'aide d'LLMs en tout genre.
+
+== Architecture générale et navigation
+
+La plateforme se base d'une structure classique avec un header persistant contenant le logo de l'application, un bouton de recherche d'artistes, et les fonctionnalités de connexion/inscription. Lorsqu'on est connecté, on peut facilement et a tout temps accéder à la page des artistes et à son profil.
+
+== Page d'accueil (Landing page)
+
+La page principale du site constitue sa landing page avec un moyen de pouvoir rapidement comprendre ce que fait cette application. L'élément central est un bouton de changement de contexte permettant à l'utilisateur de s'identifier comme artiste ou client, changeant les explications liés à l'application selon si on est artiste ou client.
+
+== Système de profils et gestion des disponibilités
+
+Une page de profil permet de voir sa disponibilité, affichée clairement par un statut ouvert/fermé pour un artiste, et de consulter les différentes commissions dessinées ou commandées respectivement selon le type d'utilisateur. 
+
+Sur cette page de profil, l'artiste peut éditer une carte de commission qui indique les prix et des exemples de ce qu'il veut dessiner. Le client peut effectuer une requête à l'artiste directement via cette carte, simplifiant le processus initial de contact.
+
+== Découverte d'artistes et système de filtrage
+
+Une page dédiée permet de voir tous les artistes avec leur style (grace à un système de tagging), leurs prix, et quelques exemples de leurs créations. Cette page intègre un système de filtrage par fourchette de prix, style artistique, et disponibilité. Une intégration possible avec les réseaux sociaux pour pouvoir facilement voir quels artistes un client pourrait déjà suivre sur une autre plateforme pour facilement voir ses disponibilités.
+
+== Communication et gestion des flux
+
+Un système de messagerie lié aux requêtes permet aux artistes et clients de communiquer et gérer le flux de commissions. Cette messagerie intégrée évite le passage obligé par Discord ou similaire.
+
+== Dashboard artiste et organisation
+
+Finalement, un gestionnaire pour les artistes de type kanban est directement intégré à l'application pour éviter d'utiliser plusieurs services différents. Ce tableau de bord organise les commissions en colonnes : nouvelles demandes, en cours (avec sous-étapes esquisse/ligne/couleur/ombrage), validation client, et terminées.
 
 = Questionnaires et hypothèses à valider
 
-_[Section à compléter avec les questionnaires préparés et les hypothèses formulées avant les entretiens]_'
+// ÉVALUATION - Critère 6 : Qualité questionnaires et hypothèses à valider
+// ❌ CRITIQUE : Section vide
+// ❌ CRITIQUE : Pas d'hypothèses formulées avant entretiens
+// ❌ CRITIQUE : Méthodologie de validation non présentée
 
+Avant de mener les entretiens, j'avais formulé plusieurs hypothèses à valider. Mon public cible initial était les artistes hobbyistes et tous types de clients, mais je voulais affiner cette définition à travers les interviews.
+
+La première hypothèse était que les artistes hobbyistes auraient besoin d'une plateforme centralisée pour gérer leurs commissions plus facilement. Je supposais qu'ils perdaient du temps à jongler entre Discord, Twitter et PayPal, et qu'une solution intégrée leur apporterait une réelle valeur ajoutée.
+
+Du côté client, mon hypothèse était qu'il existe une demande pour une plateforme permettant de filtrer les artistes par prix et disponibilité. Je partais du principe que la recherche actuelle d'artistes sur les réseaux sociaux était frustrante et chronophage.
+
+Concernant les plateformes existantes, je voulais comprendre pourquoi Skeb fonctionne si bien dans son écosystème japonais et récolter plus d'informations sur VGen, notamment pourquoi mon cercle étendu d'amis ne l'aient jamais mentionné / utilisé.
+
+Une autre hypothèse importante était que l'opacité des prix constitue un frein majeur pour les clients. Je supposais que beaucoup abandonnent leurs recherches faute d'informations tarifaires claires, et que les artistes peinent à se positionner par manque de transparence du marché.
+
+Finalement, je voulais valider si une nouvelle plateforme pourrait réellement apporter une solution, ou si les gens sont finalement satisfaits de l'écosystème actuel malgré ses défauts. Peut-être que la dispersion entre plusieurs outils ne pose pas tant de problèmes que ça en pratique?
+
+Pour valider ces hypothèses, j'ai mené des entretiens d'environ 20-30 minutes avec différents profils d'artistes et de clients en suivant la méthodologie du `Mom Test` du mieux que je pouvais. J'ai aussi lancé une enquête quantitative via Google Forms pour obtenir des données chiffrées sur les habitudes et préférences des utilisateurs.
 
 = Entretiens effectués avec le public cible
+
+// ÉVALUATION - Critère 7 : Qualité entretiens effectués avec public cible
+// ✓ EXCELLENT : 6 entretiens qualitatifs très détaillés
+// ✓ EXCELLENT : Diversité des profils interviewés
+// ✓ BIEN : Analyse fine des retours
+// ✓ BIEN : Mention d'enquête quantitative (84 réponses)
+// ⚠️ ATTENTION : Résultats quantitatifs non exploités
 
 Dans cette section, je présente un résumé des différents entretiens que j'ai pu mener avec des membres du public cible.
 
@@ -168,9 +250,28 @@ Le principal défi identifié concernant l'adoption de nouvelles plateformes res
 
 En plus de ces interviews qualitatives, j'ai mené une enquête quantitative via Google Forms qui a recueilli 84 réponses entre le 28 avril et le 1er mai 2025.
 
-_[TODO avec les informations utile au projet]_'
+J'ai pu avoir un ratio de 75% (63 personnes) de clients et 25% d'artistes (21 personnes).
+
+=== Coté artiste
+
+Un peu plus de la moitié des artiste considèrent qu'ils dessinent plutôt beaucoup et 6 d'entre eux ne vendent pas de commissions donc j'obtient seulement 15 personnes qui sont de potentiels client de l'applications.
+
+Dans ces artistes, 41% vendent moins de 5 commissions par an (donc très très occasionnellement) et un autre 41% vendent entre 5-10 commissions par ans ce qui rentre plus ou moins dans mon publique cible original.
+
+L'écrasante majorité utilisent des réseaux sociaux ou bien discord pour trouver des clients, seulement deux d'entre eux utilisent des plateformes de commissions comme VGen ou Skeb. En question ouverte j'avais demandé comment ils se mettaient en avant pour attirer de nouveaux clients, la majorité des artistes disent soit en parler envers leurs amis/proches ou bien en alimentant leurs réseaux sociaux de nouvelles oeuvres, etc.
+
+Sinon sur la question de pourquoi ils n'utilisent pas des plateformes de commissions, les réponse qui s'affichent le plus sont une certaine flemmardise de leur part ou un désintéret/ignorance pour ce type de service.
+
+Ensuite pour évaluer si une telle plateforme pourrait être viable, j'ai demandé combien d'argents se faisaient les artistes, histoire de voir si prendre une commission de x% sur 
+
 
 = Analyse des retours et conclusions
+
+// ÉVALUATION - Critère 8 : Qualité analyse retours et conclusions
+// ✓ EXCELLENT : Synthèse très pertinente des interviews
+// ✓ BIEN : Identification des contradictions avec hypothèses initiales
+// ✓ BIEN : Reconnaissance du défi de masse critique
+// ⚠️ ATTENTION : Manque l'analyse des données quantitatives
 
 Les interviews menées révèlent un écosystème complexe où artistes et clients naviguent entre plusieurs plateformes sans solution vraiment satisfaisante. Du côté des artistes, on observe une grande disparité dans les volumes d'activité, allant de l'artiste occasionnel produisant 3 à 6 commissions par an jusqu'à celui en transition vers le full-time avec 2-3 œuvres hebdomadaires. 
 
@@ -187,22 +288,53 @@ Pour conclure, le point le plus complexe pour ce MVP, visible dans ces interview
 
 = Choix technologiques et réalisation du MVP
 
+// ÉVALUATION - Critère 9 : Qualité choix technologiques et réalisation MVP
+// ❌ CRITIQUE : Section complètement vide
+// ❌ CRITIQUE : Aucune justification des choix techniques
+// ❌ CRITIQUE : MVP non décrit ni présenté
+
 _[Section à compléter avec les choix techniques effectués, les technologies utilisées, et la description du MVP développé]_'
 
 = Tests utilisateurs
+
+// ÉVALUATION - Critère 10 : Qualité tests utilisateurs
+// ❌ CRITIQUE : Section vide
+// ❌ CRITIQUE : Pas de tests du MVP présentés
+// ❌ CRITIQUE : Pas de retours utilisateurs sur le produit
 
 _[Section à compléter avec les tests effectués auprès des utilisateurs cibles et leurs retours]_'
 
 = Pérennité du projet
 
+// ÉVALUATION - Critère 11 : Qualité pérennité projet (financier et technique)
+// ❌ CRITIQUE : Section vide
+// ❌ CRITIQUE : Pas d'analyse financière
+// ❌ CRITIQUE : Pas d'analyse technique de faisabilité
+
 _[Section à compléter avec l'analyse de la viabilité financière et technique du projet]_'
 
 = Difficultés rencontrées et solutions
+
+// ÉVALUATION - Critère 12 : Qualité présentation difficultés et solutions
+// ❌ CRITIQUE : Section vide
+// ❌ CRITIQUE : Pas de retour d'expérience sur le développement
+// ❌ CRITIQUE : Pas d'analyse des obstacles rencontrés
 
 _[Section à compléter avec les principales difficultés rencontrées durant le projet et les solutions apportées]_'
 
 = Conclusion
 
-_[Section à compléter avec une rétrospective des résultats obtenus et les perspectives d'avenir du projet]_
+// ÉVALUATION - Critère 13 : Qualité de la conclusion
+// ❌ CRITIQUE : Section vide
+// ❌ CRITIQUE : Pas de synthèse des résultats
+// ❌ CRITIQUE : Pas de perspectives d'avenir
+
+_[Section à compléter avec une rétrospective des résultats obtenus et les perspectives d'avenir du projet]_'
+
+// ÉVALUATION GLOBALE - Critères 14, 15, 16 : Qualité rédaction, clarté, respect format
+// ✓ BIEN : Rédaction claire et professionnelle
+// ✓ BIEN : Structure logique et cohérente
+// ⚠️ ATTENTION : Longueur actuelle insuffisante (beaucoup de sections vides)
+// ⚠️ ATTENTION : Format respecté mais contenu incomplet
 
 
