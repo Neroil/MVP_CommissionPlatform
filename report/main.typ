@@ -2,7 +2,7 @@
 
 #show: it => basic-report(
   doc-category: "Cours de MVP",
-  doc-title: "Rapport final - Plateforme de commissions artistiques",
+  doc-title: "Rapport final - Plateforme de commissions d'art \n \n \"CoPla\"",
   author: "Häffner Edwin",
   affiliation: "HEIG-VD",
   logo: image("assets/aerospace-engineering.png", width: 2cm),
@@ -19,7 +19,7 @@
 #set page(margin: (left: 2.5cm, right: 2.5cm))
 
 // Modifier la taille du texte si souhaité
-#set text(size: 11pt)
+#set text(size: 10.5pt)
 
 = Introduction
 
@@ -31,8 +31,10 @@
 Dans le contexte du cours de MVP (Minimum Viable Product), ce rapport présente le développement d'une plateforme web destinée à faciliter les relations clients/artistes dans le contexte de commissions d'oeuvres.
 
 Dans ce document, j'utiliserai fréquemment le terme "commission" avec deux sens distincts :
-1. Son sens usuel : un acteur perçoit une commission sous forme de montant fixe ou de pourcentage
-2. Son sens dans le monde de l'art : le fait de commander une œuvre personnalisée à un artiste
+
+*1.* Son sens usuel : un acteur perçoit une commission sous forme de montant fixe ou de pourcentage
+
+*2.* Son sens dans le monde de l'art : le fait de commander une œuvre personnalisée à un artiste
 
 == Problématique
 
@@ -320,17 +322,89 @@ Cette réalité questionne fondamentalement la viabilité d'une nouvelle platefo
 // ❌ CRITIQUE : MVP non décrit ni présenté
 
 _[Section à compléter avec les choix techniques effectués, les technologies utilisées, et la description du MVP développé]_'
+== Choix technologique
+
+Avec mes compétences, j'ai rapidement choisi d'utiliser le framework Quarkus qui est parfait pour mon type d'application web. Etant plus à l'aise avec Java, Quarkus permet d'effectuer un backend dans ce langage et d'intégrer le frontend dans une même application. Un autre point fort de Quarkus est sa possibilité de faire du hot-reloading de l'entièreté de l'application, peu importe que les changements soient dans le backend ou frontend. J'ai aussi utilisé l'ORM Hibernate JPA qui permet de générer les éléments de la base de données de façon quasi transparente à partir d'objets Java annotés `@Entity`.
+
+Pour le frontend, j'ai utilisé Vite + React qui s'intègre avec une extension Quarkus nommée Quinoa qui permet de lancer Vite et Quarkus en une seule commande et de faire le linkage entre les deux entités.
+
+De plus, j'ai organisé ce projet en polyrepo : un repository pour la partie axée cours MVP (donc le rapport), et une partie axée site en lui-même qui est mon projet.
+
+== Réalisation du MVP
+
+J'ai commencé par établir un UML basique pour mettre en place le backend et les différentes entités de ma base de données, vu que le site est intrinsèquement stateful.
+
+Ensuite j'ai du trouver un nom, j'ai choisi CoPla, dérivé simplement de #strong[Co]mmission #strong[Pla]tform
+
+La première étape a été de setup les pages de login et register, étant donné que c'est un des éléments les plus importants et basique de l'application. J'ai établi une gestion d'utilisateurs basique avec les fonctionnalités d'inscription et de connexion sécurisées en utilisant Quarkus Security.
+
+Ensuite, j'ai créé une page utilisateur basique que j'ai ensuite complétée avec la possibilité d'ajouter des informations liées aux commissions. J'ai mis en place deux types de profils distincts : le profil client et le profil artiste. Dans ma conception, l'artiste extend le client dans ma hiérarchie d'objets, permettant aux artistes d'également commander des œuvres.
+
+Pour les artistes, ils peuvent indiquer les tags qui les représentent. Ils ont aussi accès à une carte de commissions avec différents éléments et prix. J'ai aussi ajouté un bouton permettant à l'artiste d'indiquer s'il est ouvert aux commissions ou non, répondant directement au besoin identifié lors des interviews concernant la visibilité de la disponibilité.
+
+Le système vérifie automatiquement le type d'utilisateur et affiche les informations correspondantes selon qu'il s'agisse d'un artiste ou d'un client.
+
+En me basant sur mes interviews, j'ai remarqué que l'intégration avec un réseau social était quasi-obligatoire vu l'usage massif de ces plateformes, j'ai ajouté un système de vérification via BlueSky. J'ai choisi BlueSky plutôt que Twitter/X car c'est une plateforme émergente qui gagne de plus en plus d'utilisateurs, alors que Twitter est un peu problématique actuellement... De plus, l'api de BlueSky, AT-Proto est gratuit à l'utilisation.
+
+Le système n'est pas encore entièrement fonctionnel mais fonctionne partiellement, permettant une vérification d'identité qui renforce la confiance entre artistes et clients.
+Il est possible aussi de vérifier si des artistes que l'ont suit sur BlueSky sont présent sur CoPla mais pour l'instant cette vérification se fait seulement à la vérification. J'ai eu du mal à le faire après coup.
+
+=== Itérations sur l'interface
+
+J'ai passé beaucoup de temps sur de nombreuses itérations du frontend avec l'aide d'LLMs pour obtenir quelque chose de visuellement attrayant. Bien que cela m'ait pris plus de temps que prévu, j'ai considéré que l'aspect visuel était crucial pour un MVP de ce type, qui doit aller plus loin qu'un simple prototype. N'ayant pas les compétences en design, j'ai largement utilisé les LLMs pour créer une interface fonctionnelle et esthétique.
+
+Le MVP actuel propose donc une plateforme fonctionnelle permettant l'inscription d'artistes et de clients, la gestion des profils avec spécification des services et tarifs, un système de disponibilité, et une vérification sociale via BlueSky.
+
+=== Ce qu'il manque
+
+Par rapport à ma proposition initiale, il manque tout de même la gestion de messaging, de gallerie pour les artists, la gestion de commission via kanban intégré. J'ai décider de prioriser l'affichage des artistes et de la disponibilité ainsi que la géstion de réseau sociaux. 
+
+== Déploiement sur Google Cloud
+
+L'application étant une application web, j'ai dû la déployer sur un service cloud pour qu'elle soit accessible en permanence. J'ai choisi Google Cloud Platform principalement pour des raisons économiques car leur offre d'essai gratuit de 3 mois avec un crédit de 250 CHF était amplement suffisante pour la durée du projet.
+
+=== Architecture de déploiement
+
+J'ai opté pour une architecture containerisée utilisant Docker Compose sur une machine virtuelle Google Cloud. Mon docker-compose lance alors quatre containeur différents: 
+
+Le conteneur PostgreSQL gère la base de données. J'ai choisi PostgreSQL car c'est un peu le best du best avec Quarkus et Hibernate JPA. Pour l'instant je perds toutes les données lors du redémarrage ce qui n'est pas trop grave, l'application n'étant pas complète dans ses features. Ensuite il y a le conteneur Quarkus qui héberge l'application elle-même. Le conteneur NGINX sert de reverse proxy et gère le routage entre HTTP et HTTPS. L'utilisation d'HTTPS est obligatoire car toute application gérant des comptes utilisateurs doit être un minimum sécurisée, ensuite, l'authentification OAuth d'AT-Proto refuse de fonctionner sur des sites non sécurisés donc je n'ai pas vraiment le choix!
+
+Le quatrième conteneur, Watchtower, surveille DockerHub toutes les 5 minutes pour détecter de nouvelles versions de l'application. Cette surveillance automatique s'intègre avec ma pipeline CI/CD qui compile le projet Quarkus en image native et la pousse sur DockerHub à chaque commit sur la branche principale.
 
 
+= Tests utilisateurs TODO: Réécrire domani
 
-= Tests utilisateurs
+J'ai réussi à donner l'application à un petit groupe restreint de personnes qui constituent mon public cible, j'ai aussi recontacté l'un des artistes que j'ai interviewé pour avoir un retour sur ce qui est déjà disponible. Ces tests ont révélé des aspects positifs encourageants mais aussi plusieurs problèmes techniques et d'expérience utilisateur à résoudre.
 
-// ÉVALUATION - Critère 10 : Qualité tests utilisateurs
-// ❌ CRITIQUE : Section vide
-// ❌ CRITIQUE : Pas de tests du MVP présentés
-// ❌ CRITIQUE : Pas de retours utilisateurs sur le produit
+== Les retours positifs
 
-_[Section à compléter avec les tests effectués auprès des utilisateurs cibles et leurs retours]_'
+L'accueil général de la plateforme s'est révélé très positif. Les utilisateurs ont particulièrement apprécié la page d'accueil qui va "droit au but" et permet aux nouveaux utilisateurs de comprendre immédiatement l'objectif du site. L'interface générale a été jugée claire et simple, offrant un contraste efficace avec la complexité de plateformes comme Patreon où il est difficile de trouver les fonctionnalités principales.
+
+Le système d'intégration BlueSky a suscité un intérêt particulier, notamment pour sa capacité à importer automatiquement les informations d'artistes et à suivre leurs ouvertures de commissions. Les utilisateurs y voient un potentiel important pour centraliser le suivi des artistes favoris.
+
+L'aspect visuel de l'application, notamment le thème sombre avec les accents violets, a été bien reçu. Les utilisateurs ont noté que cette combinaison attire naturellement l'œil vers les éléments importants comme les cartes de commission et les bannières d'artistes.
+
+Les fonctionnalités de filtrage par prix, styles artistiques et tags ont été identifiées comme particulièrement utiles pour rationaliser le processus de recherche d'artistes, répondant directement aux besoins exprimés lors des interviews initiales.
+
+== Les retours négatifs
+
+Plusieurs problèmes techniques majeurs ont été identifiés. Le plus critique concerne la sécurité : les tokens de session Quarkus peuvent être extraits et réutilisés pour générer de multiples sessions, ce qui constitue une vulnérabilité importante pour une application gérant des comptes utilisateurs.
+
+Les problèmes d'interface sont nombreux : la bio utilisateur ne peut pas être modifiée, le bouton de création de requête de commission n'est pas fonctionnel, et certains noms d'utilisateur invalides (incluant du code JavaScript) cassent l'affichage des profils même si aucune injection XSS ne se produit.
+
+L'affichage des emails sur les profils publics pose un problème de confidentialité majeur que plusieurs utilisateurs ont souligné. Les artistes devraient pouvoir contrôler la visibilité de ces informations personnelles.
+
+L'utilisation de l'espace écran, particulièrement sur desktop, est problématique avec trop d'espaces vides sur les pages de profil d'artistes. Les utilisateurs suggèrent d'agrandir les bannières et cartes de commission pour mieux utiliser l'espace disponible.
+
+Des bugs d'interface mobile ont été rapportés, notamment un bouton burger qui clignote et un arrière-plan dégradé qui change d'angle lors des transitions de page, créant un effet visuel désagréable.
+
+== Conclusion des tests
+
+Ces tests utilisateurs ont confirmé la pertinence du concept et de l'approche générale de CoPla. Les utilisateurs comprennent immédiatement la valeur ajoutée de la plateforme et apprécient sa simplicité comparée aux solutions existantes. L'intégration BlueSky est perçue comme innovante et utile.
+
+Cependant, la phase de développement actuelle révèle que l'accent mis sur l'aspect visuel a peut-être été fait au détriment de la robustesse technique. Les problèmes de sécurité et les bugs fonctionnels doivent être prioritaires avant toute mise en production réelle.
+
+Le plus encourageant reste que plusieurs utilisateurs ont exprimé leur intention d'utiliser la plateforme si le développement continue, validant ainsi l'intérêt du marché pour cette solution.
 
 = Pérennité du projet
 
