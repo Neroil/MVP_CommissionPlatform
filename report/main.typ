@@ -10,6 +10,8 @@
   language: "fr",
   it
 )
+
+
 #show heading.where(level: 3): it => [
   #pad(bottom: 0.3em)[#text(style: "italic", weight: "bold", size: 1em, fill: blue, it.body)]
 ]
@@ -250,41 +252,65 @@ Le principal défi identifié concernant l'adoption de nouvelles plateformes res
 
 En plus de ces interviews qualitatives, j'ai mené une enquête quantitative via Google Forms qui a recueilli 84 réponses entre le 28 avril et le 1er mai 2025.
 
-J'ai pu avoir un ratio de 75% (63 personnes) de clients et 25% d'artistes (21 personnes).
+J'ai pu avoir un ratio de 75% (63 personnes) de clients et 25% d'artistes (21 personnes). Dans ces classifications, certains artistes sont aussi clients donc on obtient 73 clients finalement.
 
 === Coté artiste
 
-Un peu plus de la moitié des artiste considèrent qu'ils dessinent plutôt beaucoup et 6 d'entre eux ne vendent pas de commissions donc j'obtient seulement 15 personnes qui sont de potentiels client de l'applications.
+Sur les 21 artistes ayant répondu, un peu plus de la moitié considèrent qu'ils dessinent plutôt beaucoup, et seulement 4 d'entre eux ne vendent pas de commissions. Cela me laisse donc 17 artistes qui vendent des commissions et sont des utilisateurs potentiels de l'application.
 
-Dans ces artistes, 41% vendent moins de 5 commissions par an (donc très très occasionnellement) et un autre 41% vendent entre 5-10 commissions par ans ce qui rentre plus ou moins dans mon publique cible original.
+Parmi ces 17 artistes qui vendent des commissions, 47% vendent moins de 5 commissions par an et 35% vendent entre 5 et 10 commissions par an. Ces deux groupes combinés représentent 82% des artistes vendeurs, ce qui correspond bien à mon public cible d'artistes occasionnels ou à faible volume d'activité.
 
-L'écrasante majorité utilisent des réseaux sociaux ou bien discord pour trouver des clients, seulement deux d'entre eux utilisent des plateformes de commissions comme VGen ou Skeb. En question ouverte j'avais demandé comment ils se mettaient en avant pour attirer de nouveaux clients, la majorité des artistes disent soit en parler envers leurs amis/proches ou bien en alimentant leurs réseaux sociaux de nouvelles oeuvres, etc.
+L'écrasante majorité utilise les réseaux sociaux et Discord pour trouver des clients, seulement trois d'entre eux utilisent des plateformes de commissions comme VGen ou Skeb. En question ouverte sur leurs méthodes pour attirer de nouveaux clients, les réponses les plus fréquentes incluent le bouche-à-oreille avec leurs amis et proches, ou l'alimentation régulière de leurs réseaux sociaux avec de nouvelles œuvres.
 
-Sinon sur la question de pourquoi ils n'utilisent pas des plateformes de commissions, les réponse qui s'affichent le plus sont une certaine flemmardise de leur part ou un désintéret/ignorance pour ce type de service.
+Concernant la non-utilisation des plateformes de commissions, les raisons les plus citées sont un désintérêt général, une certaine "flemmardise" ou le sentiment que l'effort n'en vaut pas la peine vu leur faible volume de commissions, et parfois une méconnaissance pure et simple de ces services.
 
-Ensuite pour évaluer si une telle plateforme pourrait être viable, j'ai demandé combien d'argents se faisaient les artistes, histoire de voir si prendre une commission de x% sur 
+Pour évaluer la viabilité financière d'une telle plateforme, j'ai analysé les revenus moyens par commission. Environ 12% des artistes gagnent moins de 20 USD par commission, 65% sont dans la fourchette 20-100 USD, et 23% gagnent plus de 100 USD par commission. Une large majorité gagne donc 20 USD ou plus par commission, ce qui signifie qu'une commission de 4% pourrait représenter presque 1 USD par transaction.
 
+Concernant la gestion des prix, tous les artistes vendeurs utilisent un système de tarification par pièce (au contraire d'un tarif horaire), ce qui confirme l'importance d'un système de filtrage par prix pour les clients. Environ 30% ont exprimé une insatisfaction marquée quant à leur gestion actuelle des commissions, avec des frustrations récurrentes qui touchent même ceux qui se disent globalement satisfaits : difficultés à trouver des clients de façon consistante, problèmes pour se positionner au niveau des prix, et complexité du management des communications et révisions.
+
+=== Côté client
+
+Du côté client, les 73 répondants montrent des habitudes de consommation variables mais significatives. 11 personnes estimaient commander plus de 10 commissions par mois ce qui est très étonnant! 
+
+Une écrasante majorité trouve leurs artistes via les réseaux sociaux, principalement Twitter, suivi de Discord. Fait particulièrement révélateur et presque choquant, 60% des répondants admettent laisser les algorithmes des réseaux sociaux dicter leurs choix d'artiste, ce qui illustre bien la nature passive et aléatoire de la recherche actuelle.
+
+Environ 32% des clients ont déjà utilisé une plateforme de commission, et parmi eux, les retours sont globalement positifs. Ils mentionnent notamment la facilité d'utilisation et de trouver des artistes disponibles, la sécurité des paiements et la clarté du processus. Les critiques portent principalement sur le manque de suivi des travaux en cours sur certaines plateformes comme Skeb ou des problèmes de communication.
+
+Concernant les motivations d'adoption d'une plateforme de commission quelques fonctionnalités ressortent très clairement. La facilité de trouver des artistes disponibles arrive en tête avec 58% des répondants, suivie de près par les notifications d'ouverture de commissions (51%) et la possibilité de retrouver facilement des artistes déjà suivis (53%). Le filtrage par prix est aussi très importante pour 44% des clients. Ses chiffres deviennent encore plus élevé si on retire les 22% qui ont indiqué déjà utiliser une telle plateforme!
 
 = Analyse des retours et conclusions
 
-// ÉVALUATION - Critère 8 : Qualité analyse retours et conclusions
-// ✓ EXCELLENT : Synthèse très pertinente des interviews
-// ✓ BIEN : Identification des contradictions avec hypothèses initiales
-// ✓ BIEN : Reconnaissance du défi de masse critique
-// ⚠️ ATTENTION : Manque l'analyse des données quantitatives
+Les interviews menées révèlent un écosystème où artistes et clients naviguent entre plusieurs plateformes sans solution vraiment satisfaisante. L'enquête quantitative confirme et amplifie ces observations avec des données concrètes sur 84 répondants.
 
-Les interviews menées révèlent un écosystème complexe où artistes et clients naviguent entre plusieurs plateformes sans solution vraiment satisfaisante. Du côté des artistes, on observe une grande disparité dans les volumes d'activité, allant de l'artiste occasionnel produisant 3 à 6 commissions par an jusqu'à celui en transition vers le full-time avec 2-3 œuvres hebdomadaires. 
+== Révision du public cible initial
 
-Cette différence influence directement leur rapport aux plateformes spécialisées : les artistes occasionnels considèrent qu'une plateforme dédiée ne justifierait pas l'investissement en temps nécessaire, tandis que ceux plus actifs y voient un réel potentiel de professionnalisation. On trouve ici une contradiction avec mon constat personnel initial pour ce MVP où je pensais faire une plateforme pour les artistes hobbyistes. Finalement, une telle plateforme serait-elle plus intéressante pour les artistes semi-pro voire professionnels ? 
+Du côté des artistes, on observe une grande disparité dans les volumes d'activité, allant de l'artiste occasionnel produisant 3 à 6 commissions par an jusqu'à celui en transition vers le full-time avec 2-3 œuvres hebdomadaires. Les données quantitatives révèlent que 82% des artistes vendeurs produisent moins de 10 commissions par an, confirmant la prédominance des artistes occasionnels.
 
-La gestion actuelle des commissions suit un schéma typique Discord-Twitter-PayPal. Ce schéma ne semble pas très satisfaisant, même s'il n'est pas dramatique. Ce qu'on peut en tirer, c'est que la gestion des commissions, du chat, du suivi des clients via Trello ou Excel devient une charge supplémentaire non négligeable pour l'artiste, surtout lorsqu'il produit un volume d'œuvres conséquent.
+Cette différence influence directement leur rapport aux plateformes spécialisées, les artistes occasionnels considèrent qu'une plateforme dédiée ne justifierait pas l'investissement en temps nécessaire, tandis que ceux plus actifs y voient un réel potentiel de professionnalisation. On trouve ici une contradiction avec mon hypothèse initiale où je pensais faire une plateforme principalement pour les artistes hobbyistes. Finalement, une telle plateforme serait-elle plus intéressante pour les artistes semi-pro voire professionnels ?
 
-Du côté client, la recherche d'artistes relève souvent du hasard organisé, oscillant entre navigation aléatoire sur les réseaux sociaux et bouche-à-oreille entre amis sur Discord. On peut noter beaucoup de temps perdu pour les recherches lorsqu'aucune plateforme spécialisée n'est utilisée, ainsi qu'une certaine opacité des prix.
+== Validation des frustrations identifiées
 
-L'expérience Skeb illustre parfaitement les bénéfices d'une approche automatisée. L'intégration Twitter permettant d'identifier en temps réel les artistes disponibles résout une frustration récurrente sur la recherche, tandis que le processus sans révision, bien qu'imparfait, offre des tarifs attractifs en échange d'une prise de risque assumée. Cependant, les barrières linguistiques et culturelles limitent l'adoption plus large de cette plateforme.
+La gestion actuelle des commissions suit un schéma typique Discord-Twitter-PayPal que l'enquête quantitative confirme massivement : 95% des clients trouvent leurs artistes via les réseaux sociaux. Ce processus dispersé génère effectivement des frustrations réelles puisque 30% des artistes expriment une insatisfaction marquée avec leur système actuel de gestion.
 
-Pour conclure, le point le plus complexe pour ce MVP, visible dans ces interviews, est l'obtention d'une masse critique d'utilisateurs. On le voit très clairement : tout le monde utilise Twitter pour trouver des artistes alors que ce n'est même pas une plateforme d'art. C'est juste la plateforme la plus populaire, le statu quo.
+L'opacité des prix se confirme comme un gros enjeu. Les données montrent que 65% des artistes facturent entre 20-100 USD par commission avec une tarification par pièce, mais les clients peinent à accéder à cette information facilement. Cette frustration se traduit dans les fonctionnalités les plus demandées : 44% des clients veulent un filtrage par prix.
 
+== Passivité de la recherche actuelle
+
+Un élément particulièrement frappant des données quantitatives est que 60% des clients admettent laisser les algorithmes des réseaux sociaux dicter leurs choix d'artiste. Cette dépendance aux algorithmes confirme le caractère aléatoire et passif de la recherche actuelle, validant le besoin d'outils de découverte plus structurés.
+
+Du côté client, cette recherche passive engendre des pertes de temps considérables et explique pourquoi 58% des répondants placent "la facilité de trouver des artistes disponibles" comme grande priorité pour adopter une plateforme de commissions.
+
+== Potentiel validé mais adoption incertaine
+
+L'expérience Skeb illustre parfaitement les bénéfices d'une approche automatisée, avec des retours très positifs de la part du gros client interviewé. Les 36% de clients ayant déjà utilisé une plateforme de commissions confirment cette tendance avec des retours globalement positifs sur la facilité d'utilisation et la sécurité des paiements.
+
+Cependant, un paradoxe émerge : malgré les frustrations exprimées et les fonctionnalités souhaitées clairement identifiées, seuls trois artistes sur 17 utilisent actuellement des plateformes spécialisées. L'interet d'une telle plateforme n'est peut-être pas assez grand pour effectuer un changement vers celle-ci.
+
+== Le défi de la masse critique
+
+Pour conclure, le point le plus complexe pour ce MVP, visible tant dans les interviews que dans les données quantitatives, est l'obtention d'une masse critique d'utilisateurs. On le voit très clairement : tout le monde utilise Twitter pour trouver des artistes alors que ce n'est même pas une plateforme d'art. C'est juste la plateforme la plus populaire, le statu quo.
+
+Cette réalité questionne fondamentalement la viabilité d'une nouvelle plateforme : même avec des fonctionnalités supérieures et répondant aux besoins exprimés, comment convaincre un écosystème entier de migrer vers une solution alternative ? La fragmentation actuelle pourrait paradoxalement être préférée à l'effort de changement, malgré ses inefficacités reconnues.
 
 = Choix technologiques et réalisation du MVP
 
@@ -294,6 +320,8 @@ Pour conclure, le point le plus complexe pour ce MVP, visible dans ces interview
 // ❌ CRITIQUE : MVP non décrit ni présenté
 
 _[Section à compléter avec les choix techniques effectués, les technologies utilisées, et la description du MVP développé]_'
+
+
 
 = Tests utilisateurs
 
