@@ -2,11 +2,24 @@
 
 #show: it => basic-report(
   doc-category: "Cours de MVP",
-  doc-title: "Rapport final - Plateforme de commissions d'art \n \n \"CoPla\"",
+  doc-title: [
+    Rapport final - Plateforme de commissions d'art 
+    
+    #align(center)[#text(
+      size: 2em,
+      weight: "black",
+      fill: gradient.linear(
+        angle: 45deg,
+        (rgb("8B5CF6"), 0%),    
+        (rgb("6366F1"), 50%),    
+        (rgb("3B82F6"), 100%)  
+      )
+    )[CoPla]]
+  ],
   author: "Häffner Edwin",
   affiliation: "HEIG-VD",
   logo: image("assets/aerospace-engineering.png", width: 2cm),
-  // <a href="https://www.flaticon.com/free-icons/aerospace" title="aerospace icons">Aerospace icons created by gravisio - Flaticon</a>
+  // Source: Aerospace icons created by gravisio - Flaticon
   language: "fr",
   it
 )
@@ -16,31 +29,24 @@
   #pad(bottom: 0.3em)[#text(style: "italic", weight: "bold", size: 1em, fill: blue, it.body)]
 ]
 
-#set page(margin: (left: 2.5cm, right: 2.5cm))
+#set page(margin: (left: 2.5cm, right: 2.5cm, top: 3cm, bottom:2cm))
 
-// Modifier la taille du texte si souhaité
 #set text(size: 10.5pt)
 
 = Introduction
 
-// ÉVALUATION - Critère 1 : Qualité de présentation de la problématique, projet et objectifs
-// ✓ BIEN : Problématique claire avec double perspective (client/artiste)
-// ✓ BIEN : Objectifs définis avec les 3 axes principaux
-// ⚠️ ATTENTION : Définition du terme "commission" utile mais pourrait être plus tôt dans le document
-
 Dans le contexte du cours de MVP (Minimum Viable Product), ce rapport présente le développement d'une plateforme web destinée à faciliter les relations clients/artistes dans le contexte de commissions d'oeuvres.
 
 Dans ce document, j'utiliserai fréquemment le terme "commission" avec deux sens distincts :
+*Son sens usuel :* un acteur perçoit une commission sous forme de montant fixe ou de pourcentage, *Son sens dans le monde de l'art :* le fait de commander une œuvre personnalisée à un artiste
 
-*1.* Son sens usuel : un acteur perçoit une commission sous forme de montant fixe ou de pourcentage
-
-*2.* Son sens dans le monde de l'art : le fait de commander une œuvre personnalisée à un artiste
+Des LLMs (notamment Claude et Gemini) ont été utilisé pour aider à la reformulation des différents éléments du rapport. 
 
 == Problématique
 
 La recherche d'artiste pour la création d'oeuvre personnalisée est difficile. Que ce soit pour une image de profil, une illustration de personnage ou tout autre projet, les clients manquent souvent d'outils pour découvrir facilement des artistes adaptés à leurs besoins, budget, temps, etc.
 
-D'un autre côté, les artistes rencontrent des difficultés pour trouver des clients et gérer leurs commandes de manière professionnelle. Actuellement, beaucoup passent par des échanges informels sur des plateformes comme Discord ou X, avec des paiements souvent gérés via PayPal, ce qui peut manquer de transparence et de sécurité.
+D'un autre côté, les artistes rencontrent des difficultés pour trouver des clients et gérer leurs commandes de manière professionnelle. Actuellement, beaucoup passent par des échanges informels sur des plateformes comme Discord ou Twitter/X, avec des paiements souvent gérés via PayPal, ce qui peut manquer de transparence et de sécurité.
 
 == Objectifs du projet
 
@@ -53,10 +59,6 @@ Pour rendre cette application viable, différents mécanismes pourraient être m
 
 = Membres de l'équipe
 
-// ÉVALUATION - Critère 2 : Qualité présentation membres équipe, rôles et compétences
-// ✓ BIEN : Compétences listées clairement
-// ⚠️ ATTENTION : Projet individuel donc section courte, mais complète
-
 Ce projet a été réalisé individuellement par moi-même, Edwin Häffner, étudiant en informatique logicielle à l'HEIG-VD.
 
 *Compétences apportées :*
@@ -67,29 +69,19 @@ Ce projet a été réalisé individuellement par moi-même, Edwin Häffner, étu
 
 = Recherche, choix et justification de l'idée
 
-// ÉVALUATION - Critère 3 : Qualité recherche, choix et justification de l'idée
-// ⚠️ ATTENTION : Section trop courte, manque d'analyse concurrentielle approfondie
-// ⚠️ ATTENTION : Pas de comparaison détaillée avec Skeb, vGen, autres plateformes
-// ⚠️ ATTENTION : Justification basée sur observation personnelle, manque de données
-
 Le projet est de mettre à disposition une plateforme web qui permet de faire le lien entre _"commissionneur"_ et artiste pour faciliter cette communication. Cette plateforme doit aussi pouvoir facilement découvrir des artistes qui seraient disponibles qu'on aurait pas forcément trouvé sans son aide.
 
 L'idée est née de l'observation personnelle des difficultés rencontrées dans l'écosystème actuel des commissions artistiques, où les transactions se font de manière dispersée entre plusieurs plateformes non spécialisées.
 
 == Recherche des plateformes déjà existantes / concurrence
 
-L'idée vient du constat qu'il existe dans mon cercle personnel une plateforme que beaucoup de personnes utilisent, Skeb. Cette plateforme est exactement le type de plateforme que je cherche mais elle a un très grand défaut : Seuls les artistes japonais peuvent s'y inscrire pour vendre leur art. 
+Dans mon cercle personnel, j'ai constaté qu'il existe une plateforme spécialisée que beaucoup de personnes utilisent, Skeb. Cette plateforme est exactement le type de plateforme que je cherche mais elle a un très grand défaut : Seuls les artistes japonais peuvent s'y inscrire pour vendre leur art. Donc c'est de la que vient l'idée de faire ma propre plateforme pour pallier à ce manque.
 
 Cette réstriction géographique viens du fait que le moyen de paiement utilisé joue avec le système bancaire japonais, donc quiquonque ne disposant pas d'un tel compte se trouve dans l'impossiblité d'utiliser cette plateforme. Cette restriction n'est pas présente pour les clients vu qu'on peut utiliser une carte de crédit pour effectuer des paiements sur cette plateforme. 
 
 Ensuite un concurrent assez récent, VGen, existe mais j'ai trouvé que quasi personne ne l'utilisait dans mes cercles d'amis plus ou moins proche, donc le but de ce MVP est d'aussi comprendre pourquoi les gens n'utilisent pas une telle plateforme. 
 
 = Identification du public cible et personae
-
-// ÉVALUATION - Critère 4 : Qualité identification public cible avec énumération personae
-// ✓ EXCELLENT : 3 personae très détaillées et réalistes
-// ✓ BIEN : Frustrations et besoins bien définis
-// ✓ BIEN : Diversité des profils (hobbyiste, passionnée, introverti)
 
 Mon public cible regroupe des adultes âgés de 18 à 50 ans, souhaitant soit commander des œuvres auprès d'artistes, soit proposer leurs services en tant qu'artistes indépendants.
 
@@ -170,11 +162,6 @@ Finalement, un gestionnaire pour les artistes de type kanban est directement int
 
 = Questionnaires et hypothèses à valider
 
-// ÉVALUATION - Critère 6 : Qualité questionnaires et hypothèses à valider
-// ❌ CRITIQUE : Section vide
-// ❌ CRITIQUE : Pas d'hypothèses formulées avant entretiens
-// ❌ CRITIQUE : Méthodologie de validation non présentée
-
 Avant de mener les entretiens, j'avais formulé plusieurs hypothèses à valider. Mon public cible initial était les artistes hobbyistes et tous types de clients, mais je voulais affiner cette définition à travers les interviews.
 
 La première hypothèse était que les artistes hobbyistes auraient besoin d'une plateforme centralisée pour gérer leurs commissions plus facilement. Je supposais qu'ils perdaient du temps à jongler entre Discord, Twitter et PayPal, et qu'une solution intégrée leur apporterait une réelle valeur ajoutée.
@@ -191,64 +178,84 @@ Pour valider ces hypothèses, j'ai mené des entretiens d'environ 20-30 minutes 
 
 = Entretiens effectués avec le public cible
 
-// ÉVALUATION - Critère 7 : Qualité entretiens effectués avec public cible
-// ✓ EXCELLENT : 6 entretiens qualitatifs très détaillés
-// ✓ EXCELLENT : Diversité des profils interviewés
-// ✓ BIEN : Analyse fine des retours
-// ✓ BIEN : Mention d'enquête quantitative (84 réponses)
-// ⚠️ ATTENTION : Résultats quantitatifs non exploités
+== Interview qualitatives
 
-Dans cette section, je présente un résumé des différents entretiens que j'ai pu mener avec des membres du public cible.
+J'ai mené 5 interviews approfondies entre le 30 mars et le 7 avril 2025 avec différents profils d'utilisateurs représentatifs de mon public cible. Ces entretiens d'environ 20-30 minutes chacun ont suivi la méthodologie du Mom Test pour éviter les biais de confirmation. La totalité des personnes interviewé est âgée entre 20 et 30 ans.
 
-== 31 Mars 2025 - Artiste occasionnel 
+Les interviews sont résumés en détail en annexe mais un très bref résumé des points principaux se trouve dans ce rapport.
 
-L'interviewé réalise 3 à 6 commissions par an, principalement pour des amis et connaissances. Il utilise surtout Discord pour gérer ses commandes, annonçant occasionnellement sa disponibilité sur Twitter et Fur Affinity. Son acquisition de clients repose essentiellement sur le bouche-à-oreille.  
+=== Profil 1 : L'artiste occasionnel (31 mars)
 
-Ensuite, l'interviewé apprécie le modèle centralisé de Skeb et vGen mais critique le manque de catégorisation efficace de vGen, qui semble trop axé sur le style anime. Il propose un système de sous-communautés similaire à Twitch pour mieux organiser les artistes par fandom ou style (furry, Pokémon, Digimon, etc.). Il souligne aussi la croissance de la communauté furry, qui n'est plus vraiment une niche mais plutôt une sous-culture à part entière, et son besoin d'une meilleure représentation sur ces plateformes.  
+*Contexte :* Artiste réalisant 3-6 commissions par an, principalement pour des amis via Discord et Twitter.
 
-Un obstacle majeur pour les nouvelles plateformes est d'atteindre une masse critique d'utilisateurs, nécessitant presque un "exode" d'une plateforme existante, comme observé avec Twitter et BlueSky. Selon l'interviewé, un artiste réalisant au moins cinq commissions par mois tirerait un réel bénéfice d'une plateforme spécialisée. Malheureusement, vu son nombre de dessins par an assez faible, il ne pense pas s'embêter à utiliser ce genre de plateforme. La popularité de l'artiste joue également un rôle inversement proportionnel au besoin d'une plateforme spécialisée.
+*Points clés relevés :*
+- Acquisition client basée sur le bouche-à-oreille uniquement
+- Apprécie le modèle centralisé de Skeb mais critique vGen pour son manque de catégorisation
+- Propose un système de sous-communautés par fandom (Furry, Pokémon, etc.)
+- Ne justifierait pas l'usage d'une plateforme spécialisée avec son faible volume d'activité
+- Utilise PayPal malgré les frais élevés par habitude
+- Valorise l'aspect communautaire des échanges personnels
 
-Il utilise PayPal malgré ses frais qu'il juge beacoup trop élevés, privilégiant la familiarité à des alternatives comme Stripe. Il absorbe lui-même les frais plutôt que de les répercuter sur ses clients, une pratique qu'il reconnaît non viable à grande échelle.  
+*Validation d'hypothèses :* Contredit mon hypothèse initiale sur les artistes hobbyistes - une plateforme serait plus pertinente pour les artistes semi-professionnels.
 
-Finalement, l'interviewé a indiqué apprécier les échanges personnels dans le processus de commission. Il souhaite néanmoins une meilleure organisation et estime qu'une plateforme idéale doit allier structure et messagerie efficace pour préserver l'aspect communautaire, ce qui semble être très important pour lui.
+=== Profil 2 : L'artiste hybride client/vendeur (6 avril)
 
-== 6 Avril 2025 - Artiste hobbyiste et à la fois client
+*Contexte :* Game designer ayant la création de dessins comme hobby, 12-15 commissions/an produites, client actif également.
 
-L'interviewé, game designer de profession, dessine dans son temps libre et produit entre 12 et 15 commissions par an selon sa charge de travail IRL. Cette activité reste positionnée comme un hobby, son emploi principal lui offrant la liberté d'être sélectif dans ses clients. Il utilise Trello pour organiser sa file d'attente et acquiert principalement ses clients par bouche-à-oreille via Discord et Twitter.
+*Côté artiste :*
+- Utilise Trello pour l'organisation personnelle
+- Sélectif dans ses clients grâce à son emploi principal
+- Acquisition de clients via bouche-à-oreille Discord/Twitter
 
-En tant que client, il recherche des artistes de manière largement aléatoire lors de sa navigation sur les réseaux sociaux. Il reconnaît que cette méthode "n'est pas la meilleure façon de procéder" mais fonctionne sur un modèle d'achat plus ou moins impulsif. Sa principale difficulté réside dans l'obtention d'informations tarifaires claires sans devoir contacter directement chaque artiste, surtout que, selon lui, certains artistes proposent des prix disproportionnés par rapport à la qualité de leur travail.
+*Côté client :*
+- Recherche "aléatoire" lors de navigation sur réseaux sociaux
+- *Frustration principale :* Opacité des prix, obligation de contacter pour obtenir des tarifs
+- Préfère les YCH pour leur simplicité
+- Souhaite séparer interactions professionnelles des réseaux sociaux
 
-Il privilégie les YCH (Your Character Here) pour ses achats car ils sont plus simples et abordables, mais exprime une frustration particulière concernant les commissions collaboratives où trouver un artiste qui plaise à plusieurs personnes simultanément s'avère complexe. Son expérience comprend aussi des incidents comme un artiste YCH populaire ayant oublié sa commande pendant trois mois malgré le paiement initial. Il exprime une préférence claire pour séparer les interactions professionnelles des réseaux sociaux, comparant cela à l'usage d'outils dédiés dans son travail de game designer.
+*Insight majeur :* Exprime le besoin d'outils dédiés pour professionnaliser les échanges, comme dans son travail de game designer.
 
-Bien qu'il ne connaisse pas les plateformes spécialisées comme Skeb ou vGen, il s'est montré intéressé par leur potentiel pour professionnaliser les échanges. Cependant, son faible volume d'activité ne justifierait pas selon lui l'investissement en temps nécessaire pour maîtriser une nouvelle plateforme.
+=== Profil 3 : L'artiste en transition professionnelle (6 avril)
 
-== 6 Avril 2025 - Artiste en transition vers le full-time
+*Contexte :* Transition emploi 36h → full-time art, 2-3 commissions/semaine.
 
-L'interviewé traverse actuellement une phase de transition plus ou moins délicate, abandonnant progressivement un emploi de 36 heures hebdomadaires pour se consacrer davantage à l'art pour des raisons de santé mentale comme physique. 
+*Défis identifiés :*
+- Gestion administrative rudimentaire (Excel)
+- Processus collaboratif complexe nécessitant validations constantes
+- Dépendance aux algorithmes des réseaux sociaux
+- *Crainte principale :* Se retrouver sans commissions en fin de file
 
-Sa routine de 2 à 3 heures de dessin quotidien produit entre une et trois commissions par semaines selon les périodes. Un chemin de commission typique est un contact via Twitter/X, ensuite ils continuent les messages généralement sur Discord car c'est un peu la plateforme defacto pour lui et ses clients. Le choix de ses clients se fait à la base du premier arrivé, premier servis!
+*Évolutions observées :*
+- Exigence paiement après validation esquisse (suite à incident)
+- Expérimentation YCH + Patreon
+- Style non-adapté aux plateformes existantes (trop orientées anime selon lui)
 
-Le processus de dessin est très collaboratif avec le client, impliquant des validations constantes à chaque étape majeure (esquisse, ligne, couleur, ombrage), révélant l'absence d'outils adaptés pour structurer ces échanges. Sa gestion administrative reste rudimentaire, reposant sur Excel pour le suivi des commandes. La majorité des commandes viennent de Twitter avec une petite partie de Bluesky et de Discord.
+*Validation :* Confirme le besoin d'outils structurés pour gérer les étapes de validation et communications.
 
-Les défis économiques qu'il rencontre illustrent les difficultés du marché artistique américain, notamment l'impact du coût de la vie élevé et de la concurrence internationale. Il trouve qu'utiliser ces réseaux sociaux pour obtenir du revenu est problèmatique, il dit subir directement les effets des algorithmes qui affecte sa visibilité (tant positivement que négativement). L'expérience d'un client ayant refusé de payer a motivé l'évolution de ses pratiques commerciales, exigeant désormais un paiement après validation de l'esquisse du dessin.
+=== Profil 4 : Le gros client utilisateur Skeb (7 avril)
 
-Sa plus grande crainte reste de se retrouver sans commissions à la fin de sa file d'attente. Bien qu'il connaisse Skeb ou bien VGen, il considère que son style artistique ne correspond pas aux œuvres typiquement présentées (style asiatique/anime) et serait intéressé par un équivalent occidental plus dans sa niche. Il expérimente aussi avec les YCH qui lui permettent de dessiner 2-3 fois plus rapidement et a récemment lancé un petit compte Patreon.
+*Contexte :* Client très actif (500 CHF/mois historiquement), utilisateur expérimenté de Skeb.
 
-== 7 Avril 2025 - Gros client et utilisateur de Skeb
+*Retours sur Skeb :*
+- *Avantage majeur :* Connexion Twitter montrant disponibilité en temps réel
+- Économies significatives : 15€ vs 200€ pour commissions équivalentes
+- Processus automatisé évite perte de temps inutile pour l'artiste
+- *Inconvénient :* Problèmes de traduction perdant des détails
 
-L'interviewé représente un segment de clients très actifs pour les artistes, ayant historiquement consacré 500 CHF mensuels aux commissions pendant qu'il restait chez ses parents, maintenant il s'est un peu calmé! Son utilisation de Skeb illustre parfaitement le potentiel des plateformes automatisées, exploitant notamment la fonctionnalité de connexion Twitter qui lui permet d'identifier immédiatement quels artistes acceptent actuellement des commissions. Cette feature résout directement la difficulité à connaître en temps réel la disponibilité des artistes et les recherches souvent infructueuses sur X ou d'autres site un peu plus spécialisé.
+*Habitudes hors Skeb :*
+- Schéma classique Twitter → Discord
+- Stratégie "planter une graine" - apprécie l'attente longue
+- *Frustration :* Dépendance aux algorithmes réseaux sociaux
 
-Selon lui, l'aspect économique de Skeb ressort comme un avantage majeur, citant l'exemple d'une commission complexe obtenue pour 15 euros via Skeb, là où un artiste occidental demanderait facilement 200 euros ou voir plus. Cette différence de prix s'explique par le processus automatisé sans révisions possibles, que l'interviewé accepte volontiers en échange de la réduction tarifaire.
+*Validation forte :* Démontre la viabilité du modèle automatisé et l'importance d'une intégration avec réseau social
 
-Le processus automatisé, sans communication directe, présente selon lui un double avantage en réduisant les coûts pour l'artiste et en évitant les frustrations liées aux malentendus. Même si des fois cet avantage peut être un inconvénient, surtout lors de problème de traduction. Skeb utilise DeepL pour traduire les commandes en japonais pour ses artistes et des fois des détails grands comme petits sont "lost in translation", pouvant transformer une description complexe en simple "bonjour, j'adore votre style, j'aimerais un dessin" (exemple réel).
+=== Profil 5 : Discussion informelle plateformes existantes (30 mars)
 
-En dehors de Skeb, ses habitudes d'achat suivent le schéma classique via Twitter puis Discord, exprimant une frustration claire concernant la dépendance aux algorithmes des réseaux sociaux. Il développe également une stratégie d'achat particulière où il apprécie l'attente prolongée des commissions, considérant cela comme "planter une graine" qui apportera une surprise future agréable. Cette mentalité lui permet de tolérer des délais de plusieurs mois, voire années, sans grande frustration.
-
-== 30 Mars 2025 - Échange sur les plateformes existantes
-
-Cet entretien informel (entre deux game) a confirmé la réputation de vGen comme plateforme orientée anime, bien que des artistes de styles variés y soient présents après recherche ciblée. L'interviewé a souligné le problème de qualité variable des artistes, évoquant une esthétique "DeviantArt-esque" pour qualifier les travaux de moindre qualité. La question des systèmes de paiement s'est révélée centrale, critiquant sévèrement PayPal avec ses frais atteignant 15% incluant les conversions de devise, ce qui pousse certains artistes vers des alternatives comme Stripe et Revolut.
-
-Le principal défi identifié concernant l'adoption de nouvelles plateformes reste la fragmentation de l'écosystème. Aucune plateforme comme SKeb ou VGen ne centralise l'ensemble des artistes désirés, obligeant les clients à multiplier les comptes et les recherches...
+*Insights sur l'écosystème :*
+- vGen perçue comme orientée anime malgré diversité réelle
+- Problème qualité variable ("esthétique DeviantArt")
+- PayPal critiqué (frais jusqu'à 15%)
+- *Défi principal :* Fragmentation - aucune plateforme ne centralise tous les artistes désirés
 
 == Interview quantitative
 
@@ -256,29 +263,7 @@ En plus de ces interviews qualitatives, j'ai mené une enquête quantitative via
 
 J'ai pu avoir un ratio de 75% (63 personnes) de clients et 25% d'artistes (21 personnes). Dans ces classifications, certains artistes sont aussi clients donc on obtient 73 clients finalement.
 
-=== Coté artiste
-
-Sur les 21 artistes ayant répondu, un peu plus de la moitié considèrent qu'ils dessinent plutôt beaucoup, et seulement 4 d'entre eux ne vendent pas de commissions. Cela me laisse donc 17 artistes qui vendent des commissions et sont des utilisateurs potentiels de l'application.
-
-Parmi ces 17 artistes qui vendent des commissions, 47% vendent moins de 5 commissions par an et 35% vendent entre 5 et 10 commissions par an. Ces deux groupes combinés représentent 82% des artistes vendeurs, ce qui correspond bien à mon public cible d'artistes occasionnels ou à faible volume d'activité.
-
-L'écrasante majorité utilise les réseaux sociaux et Discord pour trouver des clients, seulement trois d'entre eux utilisent des plateformes de commissions comme VGen ou Skeb. En question ouverte sur leurs méthodes pour attirer de nouveaux clients, les réponses les plus fréquentes incluent le bouche-à-oreille avec leurs amis et proches, ou l'alimentation régulière de leurs réseaux sociaux avec de nouvelles œuvres.
-
-Concernant la non-utilisation des plateformes de commissions, les raisons les plus citées sont un désintérêt général, une certaine "flemmardise" ou le sentiment que l'effort n'en vaut pas la peine vu leur faible volume de commissions, et parfois une méconnaissance pure et simple de ces services.
-
-Pour évaluer la viabilité financière d'une telle plateforme, j'ai analysé les revenus moyens par commission. Environ 12% des artistes gagnent moins de 20 USD par commission, 65% sont dans la fourchette 20-100 USD, et 23% gagnent plus de 100 USD par commission. Une large majorité gagne donc 20 USD ou plus par commission, ce qui signifie qu'une commission de 4% pourrait représenter presque 1 USD par transaction.
-
-Concernant la gestion des prix, tous les artistes vendeurs utilisent un système de tarification par pièce (au contraire d'un tarif horaire), ce qui confirme l'importance d'un système de filtrage par prix pour les clients. Environ 30% ont exprimé une insatisfaction marquée quant à leur gestion actuelle des commissions, avec des frustrations récurrentes qui touchent même ceux qui se disent globalement satisfaits : difficultés à trouver des clients de façon consistante, problèmes pour se positionner au niveau des prix, et complexité du management des communications et révisions.
-
-=== Côté client
-
-Du côté client, les 73 répondants montrent des habitudes de consommation variables mais significatives. 11 personnes estimaient commander plus de 10 commissions par mois ce qui est très étonnant! 
-
-Une écrasante majorité trouve leurs artistes via les réseaux sociaux, principalement Twitter, suivi de Discord. Fait particulièrement révélateur et presque choquant, 60% des répondants admettent laisser les algorithmes des réseaux sociaux dicter leurs choix d'artiste, ce qui illustre bien la nature passive et aléatoire de la recherche actuelle.
-
-Environ 32% des clients ont déjà utilisé une plateforme de commission, et parmi eux, les retours sont globalement positifs. Ils mentionnent notamment la facilité d'utilisation et de trouver des artistes disponibles, la sécurité des paiements et la clarté du processus. Les critiques portent principalement sur le manque de suivi des travaux en cours sur certaines plateformes comme Skeb ou des problèmes de communication.
-
-Concernant les motivations d'adoption d'une plateforme de commission quelques fonctionnalités ressortent très clairement. La facilité de trouver des artistes disponibles arrive en tête avec 58% des répondants, suivie de près par les notifications d'ouverture de commissions (51%) et la possibilité de retrouver facilement des artistes déjà suivis (53%). Le filtrage par prix est aussi très importante pour 44% des clients. Ses chiffres deviennent encore plus élevé si on retire les 22% qui ont indiqué déjà utiliser une telle plateforme!
+Les détails sont en annexe en fin de documents.
 
 = Analyse des retours et conclusions
 
@@ -316,12 +301,6 @@ Cette réalité questionne fondamentalement la viabilité d'une nouvelle platefo
 
 = Choix technologiques et réalisation du MVP
 
-// ÉVALUATION - Critère 9 : Qualité choix technologiques et réalisation MVP
-// ❌ CRITIQUE : Section complètement vide
-// ❌ CRITIQUE : Aucune justification des choix techniques
-// ❌ CRITIQUE : MVP non décrit ni présenté
-
-_[Section à compléter avec les choix techniques effectués, les technologies utilisées, et la description du MVP développé]_'
 == Choix technologique
 
 Avec mes compétences, j'ai rapidement choisi d'utiliser le framework Quarkus qui est parfait pour mon type d'application web. Etant plus à l'aise avec Java, Quarkus permet d'effectuer un backend dans ce langage et d'intégrer le frontend dans une même application. Un autre point fort de Quarkus est sa possibilité de faire du hot-reloading de l'entièreté de l'application, peu importe que les changements soient dans le backend ou frontend. J'ai aussi utilisé l'ORM Hibernate JPA qui permet de générer les éléments de la base de données de façon quasi transparente à partir d'objets Java annotés `@Entity`.
@@ -365,78 +344,172 @@ L'application étant une application web, j'ai dû la déployer sur un service c
 
 === Architecture de déploiement
 
-J'ai opté pour une architecture containerisée utilisant Docker Compose sur une machine virtuelle Google Cloud. Mon docker-compose lance alors quatre containeur différents: 
+J'ai opté pour une architecture containérisée utilisant Docker Compose sur une machine virtuelle Google Cloud. Mon docker-compose lance alors quatre container différents: 
 
 Le conteneur PostgreSQL gère la base de données. J'ai choisi PostgreSQL car c'est un peu le best du best avec Quarkus et Hibernate JPA. Pour l'instant je perds toutes les données lors du redémarrage ce qui n'est pas trop grave, l'application n'étant pas complète dans ses features. Ensuite il y a le conteneur Quarkus qui héberge l'application elle-même. Le conteneur NGINX sert de reverse proxy et gère le routage entre HTTP et HTTPS. L'utilisation d'HTTPS est obligatoire car toute application gérant des comptes utilisateurs doit être un minimum sécurisée, ensuite, l'authentification OAuth d'AT-Proto refuse de fonctionner sur des sites non sécurisés donc je n'ai pas vraiment le choix!
 
 Le quatrième conteneur, Watchtower, surveille DockerHub toutes les 5 minutes pour détecter de nouvelles versions de l'application. Cette surveillance automatique s'intègre avec ma pipeline CI/CD qui compile le projet Quarkus en image native et la pousse sur DockerHub à chaque commit sur la branche principale.
 
 
-= Tests utilisateurs TODO: Réécrire domani
+= Tests utilisateurs
 
-J'ai réussi à donner l'application à un petit groupe restreint de personnes qui constituent mon public cible, j'ai aussi recontacté l'un des artistes que j'ai interviewé pour avoir un retour sur ce qui est déjà disponible. Ces tests ont révélé des aspects positifs encourageants mais aussi plusieurs problèmes techniques et d'expérience utilisateur à résoudre.
+J'ai réussi à donner l'application à un petit groupe restreint de personnes qui constituent mon public cible, j'ai aussi recontacté l'un des artistes que j'ai interviewé pour avoir un retour sur ce qui est déjà disponible. Ces tests ont pu mettre en lumière certains soucis liés à l'UI, et ont pu mettre en avant les besoins réel des utilisateurs.
 
 == Les retours positifs
 
-L'accueil général de la plateforme s'est révélé très positif. Les utilisateurs ont particulièrement apprécié la page d'accueil qui va "droit au but" et permet aux nouveaux utilisateurs de comprendre immédiatement l'objectif du site. L'interface générale a été jugée claire et simple, offrant un contraste efficace avec la complexité de plateformes comme Patreon où il est difficile de trouver les fonctionnalités principales.
+L'accueil général de la plateforme s'est révélé très positif. Les utilisateurs ont particulièrement apprécié la page d'accueil qui va "droit au but" et permet aux nouveaux utilisateurs de comprendre immédiatement l'objectif du site, c'était un feedback récurrent donc très positif. L'interface générale a été jugée claire et simple, offrant un contraste efficace avec la "complexité de plateformes comme Patreon" où il est difficile de trouver les fonctionnalités principales.
 
-Le système d'intégration BlueSky a suscité un intérêt particulier, notamment pour sa capacité à importer automatiquement les informations d'artistes et à suivre leurs ouvertures de commissions. Les utilisateurs y voient un potentiel important pour centraliser le suivi des artistes favoris.
+Les utilisateurs voient un réel potentiel avec l'intégration de BlueSky, et plus de la moitié des testeurs ont essayé l'intégration avec BlueSky, même si la fonctionnalité de vérification de following n'était pas testable pour eux (Ils ne suivaient personne présent sur la plateforme, ce qui fais sens sachant qu'il n'y a que des utilisateurs fictifs sur la plateforme).
 
-L'aspect visuel de l'application, notamment le thème sombre avec les accents violets, a été bien reçu. Les utilisateurs ont noté que cette combinaison attire naturellement l'œil vers les éléments importants comme les cartes de commission et les bannières d'artistes.
+L'aspect visuel de l'application, notamment le thème sombre avec les accents violets, a été bien reçu. Les testeurs ont noté que cette combinaison attire naturellement l'œil vers les éléments importants comme les cartes de commission et les bannières d'artistes.
 
-Les fonctionnalités de filtrage par prix, styles artistiques et tags ont été identifiées comme particulièrement utiles pour rationaliser le processus de recherche d'artistes, répondant directement aux besoins exprimés lors des interviews initiales.
+Les fonctionnalités de filtrage par prix, styles artistiques et tags ont été identifiées comme particulièrement utiles pour aider dans le processus de recherche d'artistes, répondant directement a certains besoins exprimés lors des interviews initiales.
 
 == Les retours négatifs
 
-Plusieurs problèmes techniques majeurs ont été identifiés. Le plus critique concerne la sécurité : les tokens de session Quarkus peuvent être extraits et réutilisés pour générer de multiples sessions, ce qui constitue une vulnérabilité importante pour une application gérant des comptes utilisateurs.
+Plusieurs problèmes techniques ont été identifiés. J'ai eu l'un des testeur qui s'est amusé a essayer de casser la base de donnée et les entrées utilisateurs, ce qui est très utile pour moi. Selon ce testeur, les tokens de Quarkus Security n'ont pas l'air très sécurisé. C'est quelque chose à creuser lors du processus d'amélioration de l'application.
 
-Les problèmes d'interface sont nombreux : la bio utilisateur ne peut pas être modifiée, le bouton de création de requête de commission n'est pas fonctionnel, et certains noms d'utilisateur invalides (incluant du code JavaScript) cassent l'affichage des profils même si aucune injection XSS ne se produit.
+Ensuite il y a eu de nombreux problèmes liés à l'interface : la bio utilisateur ne peut pas être modifiée(normale, elle n'est pas encore implémenté), le bouton de création de requête de commission n'est pas fonctionnel(normal aussi), et certains noms d'utilisateur invalides (incluant du code JavaScript) cassent l'affichage des profils même si aucune injection XSS ne se produit.
 
-L'affichage des emails sur les profils publics pose un problème de confidentialité majeur que plusieurs utilisateurs ont souligné. Les artistes devraient pouvoir contrôler la visibilité de ces informations personnelles.
+L'affichage des emails sur les profils publics pose un problème de confidentialité que plusieurs utilisateurs ont souligné. Les artistes devraient pouvoir contrôler la visibilité de ces informations personnelles, de plus beaucoup d'entre eux peuvent utiliser des emails qui leakent des données personnelles (nom et prénom).
 
-L'utilisation de l'espace écran, particulièrement sur desktop, est problématique avec trop d'espaces vides sur les pages de profil d'artistes. Les utilisateurs suggèrent d'agrandir les bannières et cartes de commission pour mieux utiliser l'espace disponible.
+L'utilisation de l'espace écran, particulièrement sur desktop, est problématique avec trop d'espaces vides sur les pages de profil d'artistes. Les utilisateurs suggèrent d'agrandir les bannières et cartes de commission pour mieux utiliser l'espace disponible, le problème est que le site occupe 50% de l'espace de l'écran, ce qui est bien pour du mobile, mais pour de l'utilisation desktop, ce n'est pas bon.
 
-Des bugs d'interface mobile ont été rapportés, notamment un bouton burger qui clignote et un arrière-plan dégradé qui change d'angle lors des transitions de page, créant un effet visuel désagréable.
+Ensuite, dans la partie plus utile du site, j'ai eu le retour qu'il fallait moins montrer la landing page et plus directement montrer les artistes, les mettre en valeur vu qu'ils sont tout de même central au site, ce qui manque pour le moment. J'ai aussi eu comme retour qu'avoir un système de follow en plus du système bluesky serait super utile, peut-être pas tous les artistes n'utilisent BlueSky (Ce qui est le cas).
+
+Sinon quelques bug d'interfaces par ci par là ont été noté.
 
 == Conclusion des tests
 
-Ces tests utilisateurs ont confirmé la pertinence du concept et de l'approche générale de CoPla. Les utilisateurs comprennent immédiatement la valeur ajoutée de la plateforme et apprécient sa simplicité comparée aux solutions existantes. L'intégration BlueSky est perçue comme innovante et utile.
+Ces tests utilisateurs ont confirmé la pertinence du concept et de l'approche générale de CoPla. Les utilisateurs comprennent immédiatement la valeur ajoutée de la plateforme et apprécient sa simplicité comparée aux solutions existantes. L'intégration BlueSky est perçue comme super  utile.
 
-Cependant, la phase de développement actuelle révèle que l'accent mis sur l'aspect visuel a peut-être été fait au détriment de la robustesse technique. Les problèmes de sécurité et les bugs fonctionnels doivent être prioritaires avant toute mise en production réelle.
-
-Le plus encourageant reste que plusieurs utilisateurs ont exprimé leur intention d'utiliser la plateforme si le développement continue, validant ainsi l'intérêt du marché pour cette solution.
+Même s'il y a des points négatif, j'ai eu beaucoup de retour encourageant, après peut-être que ces retours étaient biaisé... Mais globalement c'est une avalanche de bonnes nouvelles.
 
 = Pérennité du projet
 
-// ÉVALUATION - Critère 11 : Qualité pérennité projet (financier et technique)
-// ❌ CRITIQUE : Section vide
-// ❌ CRITIQUE : Pas d'analyse financière
-// ❌ CRITIQUE : Pas d'analyse technique de faisabilité
+Pour le moment, le projet, par manque de temps, n'est pas très pérenne. Je n'ai pas encore pu documenter le flow des requêtes entre le backend et le frontend. De plus il n'y a aucun test pour le moment, vu que j'ai passé beaucoup de temps sur les features qui étaient selon moi les plus importantes. Donc finalement la reprise du projet pourrait se faire avec quelques accrocs. 
 
-_[Section à compléter avec l'analyse de la viabilité financière et technique du projet]_'
+Néanmoins j'ai commencé à documenter comment mettre en place une VM, mettre en place le docker compose avec NGinx pour pouvoir faire le routing sur l'application. Un tel document est selon moi très important, surtout du fait que le projet ne risque pas de rester sur Google Cloud dans le temps avec des alternatives locales qui sont plus attrayantes (mais plus cher !!).
+
+Du côté positif, certains éléments sont déjà en place pour faciliter la maintenance future. L'utilisation de Git avec une pipeline CI/CD automatisée qui compile l'application en image Docker native et la pousse sur DockerHub constitue une base solide. Le système Watchtower surveille automatiquement les nouvelles versions et redéploie l'application, ce qui automatise une partie importante du processus de déploiement. L'architecture containerisée avec Docker Compose facilite aussi le déploiement sur n'importe quel environnement, que ce soit en local ou sur un autre fournisseur cloud.
+
+La stack technologique choisie avec Quarkus, React et PostgreSQL représente des technologies populaires et bien documentées, ce qui faciliterait la reprise par d'autres développeurs. Le polyrepo organisé sépare clairement les préoccupations entre le rapport académique et le code de l'application elle-même. 
+
+Cependant, plusieurs éléments critiques manquent cruellement. L'absence totale de tests, qu'ils soient unitaires, d'intégration ou end-to-end, représente le risque le plus important pour la maintenance future. Toute modification du code se fait actuellement à l'aveugle... Il y a aussi quelque bug dans l'application comme mentionné dans la partie feedback utilisateurs, donc elle n'est pas encore 100% fonctionnelle même dans sa version écourtée.
+
+== Aspect financiers
+
+Le "seul" moyen pour que l'application soit perenne dans le temps financièrement est de mettre en place une commission#footnote[sens usuel] sur les commissions des artistes. Plus tôt dans le document j'ai pu mentionner 4% mais la valeur d'une telle commission doit se choisir en prenant en compte des prix d'hébergement, de la masse d'utilisateur, de plus de recherche sur les commissions que prennent les sites concurrents. Le problème est que pour mettre en place ce système, il faut que l'entièreté des features projetée du site soit complètes, ce qui n'est pas le cas pour le moment.
+
+Je dis que c'est le seul moyen car selon moi et d'autres artistes, l'idée de mettre des pubs sur une telle plateforme n'a pas lieu, et mettre en avant les artistes qui paierait un abonnement poserait un réel problème éthique.
+
+== Conclusion de la pérennité
+
+Donc pour rendre l'application perenne, il travailler sur ces points ci en premier lieu : les tests, la documentation technique de l'api et les corrections de problèmes sur les features actuelles, avant de pousser plus de features. Ensuite une fois que cette première phase de pérennité est développée, je peux mettre en place le reste des features et par consequent pouvoir avoir un objectif de perennité financière.
 
 = Difficultés rencontrées et solutions
 
-// ÉVALUATION - Critère 12 : Qualité présentation difficultés et solutions
-// ❌ CRITIQUE : Section vide
-// ❌ CRITIQUE : Pas de retour d'expérience sur le développement
-// ❌ CRITIQUE : Pas d'analyse des obstacles rencontrés
+La grosse difficulté de ce projet était la partie frontend, je l'ai déjà expliqué plus tôt dans le rapport mais le problème d'un tel MVP est que la partie visuelle de l'application est tout aussi importante que la partie fonctionnelle. Personne ne veut utiliser quelque chose qui ressemble à un site de 2005. Pour pallier à ça j'ai itéré beaucoup de fois sur cet UI en utilisant des LLMs avec plus ou moins de succès. J'ai tout de même un contrôle quasi total du code mais le code développé avec IA est quelque peu spaguetti et aussi manque beaucoup de bonne manière d'effectuer ce genre d'interface, connaissance que je n'ai juste pas.
 
-_[Section à compléter avec les principales difficultés rencontrées durant le projet et les solutions apportées]_'
+La seconde difficulté était l'intégration de l'api AT-Proto avec OAuth. La documentation est très menue (un simple read me sur le repo git de At-Proto avec juste un exemple de code). J'ai aussi le problème de pouvoir garder une sorte de token dans la base de donnée pour pouvoir effectuer des synchronisations avec BlueSky après coup. Pour le moment je ne sais pas trop comment faire et je manque de temps pour chercher plus de solutions. Cette limitation empêche notamment la synchronisation en temps réel des statuts de disponibilité, une fonctionnalité pourtant très importante selon les interviews et retour utilisateur.
+
+Ensuite une grande difficulté était le travail solo, à l'HEIG-VD on s'est habitué à ne jamais travailler tout seul. Donc c'était compliqué de se motiver et aussi de faire des choix pour l'ui mais aussi le backend. 
 
 = Conclusion
 
-// ÉVALUATION - Critère 13 : Qualité de la conclusion
-// ❌ CRITIQUE : Section vide
-// ❌ CRITIQUE : Pas de synthèse des résultats
-// ❌ CRITIQUE : Pas de perspectives d'avenir
+Au final, ce projet d'MVP était très intéressant et formateur. Devoir chercher des idées, faire des interviews, apprendre a pitcher son idée et apprendre à recevoir des feedbacks... Ce sont des choses qu'on apprend pas forcément dans le contexte de l'HEIG-VD.
 
-_[Section à compléter avec une rétrospective des résultats obtenus et les perspectives d'avenir du projet]_'
+Ce projet m'a particulièrement marqué par la complexité de créer quelque chose d'entièrement nouveau dans un marché déjà établi. Les interviews ont révélé un paradoxe fascinant : tout le monde se plaint de l'écosystème actuel (Twitter → Discord → PayPal), mais très peu sont prêts à changer leurs habitudes pour quelque chose de mieux. C'est probablement le défi le plus dur à surmonter dans la recherche d'un produit viable.
 
-// ÉVALUATION GLOBALE - Critères 14, 15, 16 : Qualité rédaction, clarté, respect format
-// ✓ BIEN : Rédaction claire et professionnelle
-// ✓ BIEN : Structure logique et cohérente
-// ⚠️ ATTENTION : Longueur actuelle insuffisante (beaucoup de sections vides)
-// ⚠️ ATTENTION : Format respecté mais contenu incomplet
+D'un point de vue technique, développer seul une application full-stack m'a poussé dans mes retranchements, surtout côté frontend où je partais de quasi zéro. L'utilisation d'LLMs pour accélérer le développement UI s'est révélée à double tranchant : rapide pour prototyper, mais créant du code parfois bof bof qu'il faut ensuite nettoyer.
 
+Les retours des tests utilisateurs ont été globalement encourageants, validant l'hypothèse qu'il peut y avoir un besoin pour une plateforme comme CoPla. Reste maintenant à voir si cette validation se traduirait par une adoption réelle à plus grande échelle, chose très importante pour ce type de plateforme...
 
+Si je devais continuer ce projet, ce que je vais sûrement faire, les priorités seraient claires : tests automatisés, correction des vulnérabilités de sécurité, et surtout, développement des fonctionnalités manquantes comme le système de messaging et le kanban intégré. Peut être aussi voir avec des personnes de mon entourage pour développer une interface qui cible peut-être mieux les utilisateurs. Le but est vraiment de pouvoir gérer ces commissions de A à Z sur Copla!
+
+Finalement c'était une experience enrichissante et je suis bien content d'avoir pu travailler sur ce projet.
+
+#pagebreak()
+= Annexes
+
+== Interviews utilisateurs détaillées
+
+Voici les résumés détaillés des interviews 1 on 1 que j'ai pu avoir avec mon publique cible
+
+== 31 Mars 2025 - Artiste occasionnel 
+
+L'interviewé réalise 3 à 6 commissions par an, principalement pour des amis et connaissances. Il utilise surtout Discord pour gérer ses commandes, annonçant occasionnellement sa disponibilité sur Twitter et Fur Affinity. Son acquisition de clients repose essentiellement sur le bouche-à-oreille.  
+
+Ensuite, l'interviewé apprécie le modèle centralisé de Skeb et vGen mais critique le manque de catégorisation efficace de vGen, qui semble trop axé sur le style anime. Il propose un système de sous-communautés similaire à Twitch pour mieux organiser les artistes par fandom ou style (Furry, Pokémon, Digimon, etc.). Il souligne aussi la croissance de la communauté furry, qui n'est plus vraiment une niche mais plutôt une sous-culture à part entière, et son besoin d'une meilleure représentation sur ces plateformes.  
+
+Un obstacle majeur pour les nouvelles plateformes est d'atteindre une masse critique d'utilisateurs, nécessitant presque un "exode" d'une plateforme existante, comme observé avec Twitter et BlueSky. Selon l'interviewé, un artiste réalisant au moins cinq commissions par mois tirerait un réel bénéfice d'une plateforme spécialisée. Malheureusement, vu son nombre de dessins par an assez faible, il ne pense pas s'embêter à utiliser ce genre de plateforme. La popularité de l'artiste joue également un rôle inversement proportionnel au besoin d'une plateforme spécialisée.
+
+Il utilise PayPal malgré ses frais qu'il juge beaucoup trop élevés, privilégiant la familiarité à des alternatives comme Stripe. Il absorbe lui-même les frais plutôt que de les répercuter sur ses clients, une pratique qu'il reconnaît non viable à grande échelle.  
+
+Finalement, l'interviewé a indiqué apprécier les échanges personnels dans le processus de commission. Il souhaite néanmoins une meilleure organisation et estime qu'une plateforme idéale doit allier structure et messagerie efficace pour préserver l'aspect communautaire, ce qui semble être très important pour lui.
+
+== 6 Avril 2025 - Artiste hobbyiste et à la fois client
+
+L'interviewé, game designer de profession, dessine dans son temps libre et produit entre 12 et 15 commissions par an selon sa charge de travail IRL. Cette activité reste positionnée comme un hobby, son emploi principal lui offrant la liberté d'être sélectif dans ses clients. Il utilise Trello pour organiser sa file d'attente et acquiert principalement ses clients par bouche-à-oreille via Discord et Twitter.
+
+En tant que client, il recherche des artistes de manière largement aléatoire lors de sa navigation sur les réseaux sociaux. Il reconnaît que cette méthode "n'est pas la meilleure façon de procéder" mais fonctionne sur un modèle d'achat plus ou moins impulsif. Sa principale difficulté réside dans l'obtention d'informations tarifaires claires sans devoir contacter directement chaque artiste, surtout que, selon lui, certains artistes proposent des prix disproportionnés par rapport à la qualité de leur travail.
+
+Il privilégie les YCH (Your Character Here) pour ses achats car ils sont plus simples et abordables, mais exprime une frustration particulière concernant les commissions collaboratives où trouver un artiste qui plaise à plusieurs personnes simultanément s'avère complexe. Son expérience comprend aussi des incidents comme un artiste YCH populaire ayant oublié sa commande pendant trois mois malgré le paiement initial. Il exprime une préférence claire pour séparer les interactions professionnelles des réseaux sociaux, comparant cela à l'usage d'outils dédiés dans son travail de game designer.
+
+Bien qu'il ne connaisse pas les plateformes spécialisées comme Skeb ou vGen, il s'est montré intéressé par leur potentiel pour professionnaliser les échanges. Cependant, son faible volume d'activité ne justifierait pas selon lui l'investissement en temps nécessaire pour maîtriser une nouvelle plateforme.
+
+== 6 Avril 2025 - Artiste en transition vers le full-time
+
+L'interviewé traverse actuellement une phase de transition plus ou moins délicate, abandonnant progressivement un emploi de 36 heures hebdomadaires pour se consacrer davantage à l'art pour des raisons de santé mentale comme physique. 
+
+Sa routine de 2 à 3 heures de dessin quotidien produit entre une et trois commissions par semaines selon les périodes. Un chemin de commission typique est un contact via Twitter/X, ensuite ils continuent les messages généralement sur Discord car c'est un peu la plateforme defacto pour lui et ses clients. Le choix de ses clients se fait à la base du premier arrivé, premier servis!
+
+Le processus de dessin est très collaboratif avec le client, impliquant des validations constantes à chaque étape majeure (esquisse, ligne, couleur, ombrage), révélant l'absence d'outils adaptés pour structurer ces échanges. Sa gestion administrative reste rudimentaire, reposant sur Excel pour le suivi des commandes. La majorité des commandes viennent de Twitter avec une petite partie de Bluesky et de Discord.
+
+Les défis économiques qu'il rencontre illustrent les difficultés du marché artistique américain, notamment l'impact du coût de la vie élevé et de la concurrence internationale. Il trouve qu'utiliser ces réseaux sociaux pour obtenir du revenu est problèmatique, il dit subir directement les effets des algorithmes qui affecte sa visibilité (tant positivement que négativement). L'expérience d'un client ayant refusé de payer a motivé l'évolution de ses pratiques commerciales, exigeant désormais un paiement après validation de l'esquisse du dessin.
+
+Sa plus grande crainte reste de se retrouver sans commissions à la fin de sa file d'attente. Bien qu'il connaisse Skeb ou bien VGen, il considère que son style artistique ne correspond pas aux œuvres typiquement présentées (style asiatique/anime) et serait intéressé par un équivalent occidental plus dans sa niche. Il expérimente aussi avec les YCH qui lui permettent de dessiner 2-3 fois plus rapidement et a récemment lancé un petit compte Patreon.
+
+== 7 Avril 2025 - Gros client et utilisateur de Skeb
+
+L'interviewé représente un segment de clients très actifs pour les artistes, ayant historiquement consacré 500 CHF mensuels aux commissions pendant qu'il restait chez ses parents, maintenant il s'est un peu calmé! Son utilisation de Skeb illustre parfaitement le potentiel des plateformes automatisées, exploitant notamment la fonctionnalité de connexion Twitter qui lui permet d'identifier immédiatement quels artistes acceptent actuellement des commissions. Cette feature résout directement la difficulité à connaître en temps réel la disponibilité des artistes et les recherches souvent infructueuses sur X ou d'autres site un peu plus spécialisé.
+
+Selon lui, l'aspect économique de Skeb ressort comme un avantage majeur, citant l'exemple d'une commission complexe obtenue pour 15 euros via Skeb, là où un artiste occidental demanderait facilement 200 euros ou voir plus. Cette différence de prix s'explique par le processus automatisé sans révisions possibles, que l'interviewé accepte volontiers en échange de la réduction tarifaire.
+
+Le processus automatisé, sans communication directe, présente selon lui un grand avantage en réduisant les coûts en temps pour l'artiste et donc en argent pour le client. Même si des fois cet avantage peut être un inconvénient, surtout lors de problème de traduction. Skeb utilise DeepL pour traduire les commandes en japonais pour ses artistes et des fois des détails grands comme petits sont "lost in translation", pouvant transformer une description complexe en simple "bonjour, j'adore votre style, j'aimerais un dessin" (exemple réel).
+
+En dehors de Skeb, ses habitudes d'achat suivent le schéma classique via Twitter puis Discord, exprimant une frustration claire concernant la dépendance aux algorithmes des réseaux sociaux. Il développe également une stratégie d'achat particulière où il apprécie l'attente prolongée des commissions, considérant cela comme "planter une graine" qui apportera une surprise future agréable. Cette mentalité lui permet de tolérer des délais de plusieurs mois, voire années, sans grande frustration.
+
+== 30 Mars 2025 - Échange sur les plateformes existantes
+
+Cet entretien informel (entre deux game) a confirmé la réputation de vGen comme plateforme orientée anime, bien que des artistes de styles variés y soient présents après recherche ciblée. L'interviewé a souligné le problème de qualité variable des artistes, évoquant une esthétique "DeviantArt-esque" pour qualifier les travaux de moindre qualité. La question des systèmes de paiement s'est révélée centrale, critiquant sévèrement PayPal avec ses frais atteignant 15% incluant les conversions de devise, ce qui pousse certains artistes vers des alternatives comme Stripe et Revolut.
+
+Le principal défi identifié concernant l'adoption de nouvelles plateformes reste la fragmentation de l'écosystème. Aucune plateforme comme SKeb ou VGen ne centralise l'ensemble des artistes désirés, obligeant les clients à multiplier les comptes et les recherches...
+
+== Interview quantitative détaillée
+
+Voici les détails des interview quantitatives :
+
+=== Coté artiste
+
+Sur les 21 artistes ayant répondu, un peu plus de la moitié considèrent qu'ils dessinent plutôt beaucoup, et seulement 4 d'entre eux ne vendent pas de commissions. Cela me laisse donc 17 artistes qui vendent des commissions et sont des utilisateurs potentiels de l'application.
+
+Parmi ces 17 artistes qui vendent des commissions, 47% vendent moins de 5 commissions par an et 35% vendent entre 5 et 10 commissions par an. Ces deux groupes combinés représentent 82% des artistes vendeurs, ce qui correspond bien à mon public cible d'artistes occasionnels ou à faible volume d'activité.
+
+L'écrasante majorité utilise les réseaux sociaux et Discord pour trouver des clients, seulement trois d'entre eux utilisent des plateformes de commissions comme VGen ou Skeb. En question ouverte sur leurs méthodes pour attirer de nouveaux clients, les réponses les plus fréquentes incluent le bouche-à-oreille avec leurs amis et proches, ou l'alimentation régulière de leurs réseaux sociaux avec de nouvelles œuvres.
+
+Concernant la non-utilisation des plateformes de commissions, les raisons les plus citées sont un désintérêt général, une certaine "flemmardise" ou le sentiment que l'effort n'en vaut pas la peine vu leur faible volume de commissions, et parfois une méconnaissance pure et simple de ces services.
+
+Pour évaluer la viabilité financière d'une telle plateforme, j'ai analysé les revenus moyens par commission. Environ 12% des artistes gagnent moins de 20 USD par commission, 65% sont dans la fourchette 20-100 USD, et 23% gagnent plus de 100 USD par commission. Une large majorité gagne donc 20 USD ou plus par commission, ce qui signifie qu'une commission de 4% pourrait représenter presque 1 USD par transaction.
+
+Concernant la gestion des prix, tous les artistes vendeurs utilisent un système de tarification par pièce (au contraire d'un tarif horaire), ce qui confirme l'importance d'un système de filtrage par prix pour les clients. Environ 30% ont exprimé une insatisfaction marquée quant à leur gestion actuelle des commissions, avec des frustrations récurrentes qui touchent même ceux qui se disent globalement satisfaits : difficultés à trouver des clients de façon consistante, problèmes pour se positionner au niveau des prix, et complexité du management des communications et révisions.
+
+=== Côté client
+
+Du côté client, les 73 répondants montrent des habitudes de consommation variables mais significatives. 11 personnes estimaient commander plus de 10 commissions par mois ce qui est très étonnant! 
+
+Une écrasante majorité trouve leurs artistes via les réseaux sociaux, principalement Twitter, suivi de Discord. Fait particulièrement révélateur et presque choquant, 60% des répondants admettent laisser les algorithmes des réseaux sociaux dicter leurs choix d'artiste, ce qui illustre bien la nature passive et aléatoire de la recherche actuelle.
+
+Environ 32% des clients ont déjà utilisé une plateforme de commission, et parmi eux, les retours sont globalement positifs. Ils mentionnent notamment la facilité d'utilisation et de trouver des artistes disponibles, la sécurité des paiements et la clarté du processus. Les critiques portent principalement sur le manque de suivi des travaux en cours sur certaines plateformes comme Skeb ou des problèmes de communication.
+
+Concernant les motivations d'adoption d'une plateforme de commission quelques fonctionnalités ressortent très clairement. La facilité de trouver des artistes disponibles arrive en tête avec 58% des répondants, suivie de près par les notifications d'ouverture de commissions (51%) et la possibilité de retrouver facilement des artistes déjà suivis (53%). Le filtrage par prix est aussi très importante pour 44% des clients. Ses chiffres deviennent encore plus élevé si on retire les 22% qui ont indiqué déjà utiliser une telle plateforme!
