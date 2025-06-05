@@ -35,16 +35,16 @@
 
 = Introduction
 
-Dans le contexte du cours de MVP (Minimum Viable Product), ce rapport présente le développement d'une plateforme web destinée à faciliter les relations clients/artistes dans le contexte de commissions d'oeuvres.
+Dans le contexte du cours de MVP (Minimum Viable Product), ce rapport présente le développement d'une plateforme web destinée à faciliter les relations clients/artistes dans le contexte de commissions d'œuvres.
 
 Dans ce document, j'utiliserai fréquemment le terme "commission" avec deux sens distincts :
-*Son sens usuel :* un acteur perçoit une commission sous forme de montant fixe ou de pourcentage, *Son sens dans le monde de l'art :* le fait de commander une œuvre personnalisée à un artiste
+*Son sens usuel :* un acteur perçoit une commission sous forme de montant fixe ou de pourcentage. *Son sens dans le monde de l'art :* le fait de commander une œuvre personnalisée à un artiste.
 
-Des LLMs (notamment Claude et Gemini) ont été utilisé pour aider à la reformulation des différents éléments du rapport. 
+Des LLMs (notamment Claude et Gemini) ont été utilisés pour aider à la reformulation des différents éléments du rapport.
 
 == Problématique
 
-La recherche d'artiste pour la création d'oeuvre personnalisée est difficile. Que ce soit pour une image de profil, une illustration de personnage ou tout autre projet, les clients manquent souvent d'outils pour découvrir facilement des artistes adaptés à leurs besoins, budget, temps, etc.
+La recherche d'artistes pour la création d'œuvres personnalisées est difficile. Que ce soit pour une image de profil, une illustration de personnage ou tout autre projet, les clients manquent souvent d'outils pour découvrir facilement des artistes adaptés à leurs besoins, budget, temps, etc.
 
 D'un autre côté, les artistes rencontrent des difficultés pour trouver des clients et gérer leurs commandes de manière professionnelle. Actuellement, beaucoup passent par des échanges informels sur des plateformes comme Discord ou Twitter/X, avec des paiements souvent gérés via PayPal, ce qui peut manquer de transparence et de sécurité.
 
@@ -55,21 +55,21 @@ L'objectif est de créer une plateforme centralisée qui facilite :
 - La gestion des échanges et des paiements
 - L'organisation des commissions de manière plus fluide et professionnelle
 
-Pour rendre cette application viable, différents mécanismes pourraient être mis en place comme par exemple une prise d'une commission (si possible moins que 4%) ou bien encore la mise en place d'un système d'abonnements.
+Pour rendre cette application viable, différents mécanismes pourraient être mis en place comme par exemple prendre une commission (si possible moins de 4%) ou bien encore mettre en place un système d'abonnements.
 
 = Membres de l'équipe
 
 Ce projet a été réalisé individuellement par moi-même, Edwin Häffner, étudiant en informatique logicielle à l'HEIG-VD.
 
 *Compétences apportées :*
-- Développement d'application web (Utilisation de framework t.q. Quarkus, notion de frontend avec React, etc. Gestion de base de donnée)
+- Développement d'applications web (utilisation de frameworks tel que Quarkus, notions de frontend avec React, etc. Gestion de base de données)
 - Interface utilisateur et expérience utilisateur
 - Gestion de projet
 - Connaissance sur le sujet (Artiste hobbyiste)
 
 = Recherche, choix et justification de l'idée
 
-Le projet est de mettre à disposition une plateforme web qui permet de faire le lien entre _"commissionneur"_ et artiste pour faciliter cette communication. Cette plateforme doit aussi pouvoir facilement découvrir des artistes qui seraient disponibles qu'on aurait pas forcément trouvé sans son aide.
+Le projet consiste à mettre à disposition une plateforme web qui permet de faire le lien entre _"commissionneur"_ et artiste pour faciliter cette communication. Cette plateforme doit aussi permettre de découvrir facilement des artistes disponibles qu'on n'aurait pas forcément trouvés sans son aide.
 
 L'idée est née de l'observation personnelle des difficultés rencontrées dans l'écosystème actuel des commissions artistiques, où les transactions se font de manière dispersée entre plusieurs plateformes non spécialisées.
 
@@ -77,9 +77,9 @@ L'idée est née de l'observation personnelle des difficultés rencontrées dans
 
 Dans mon cercle personnel, j'ai constaté qu'il existe une plateforme spécialisée que beaucoup de personnes utilisent, Skeb. Cette plateforme est exactement le type de plateforme que je cherche mais elle a un très grand défaut : Seuls les artistes japonais peuvent s'y inscrire pour vendre leur art. Donc c'est de la que vient l'idée de faire ma propre plateforme pour pallier à ce manque.
 
-Cette réstriction géographique viens du fait que le moyen de paiement utilisé joue avec le système bancaire japonais, donc quiquonque ne disposant pas d'un tel compte se trouve dans l'impossiblité d'utiliser cette plateforme. Cette restriction n'est pas présente pour les clients vu qu'on peut utiliser une carte de crédit pour effectuer des paiements sur cette plateforme. 
+Cette réstriction géographique vient du fait que le moyen de paiement utilisé fonctionne avec le système bancaire japonais, donc quiconque ne disposant pas d'un tel compte se trouve dans l'impossibilité d'utiliser cette plateforme. Cette restriction n'est pas présente pour les clients vu qu'on peut utiliser une carte de crédit pour effectuer des paiements sur cette plateforme. 
 
-Ensuite un concurrent assez récent, VGen, existe mais j'ai trouvé que quasi personne ne l'utilisait dans mes cercles d'amis plus ou moins proche, donc le but de ce MVP est d'aussi comprendre pourquoi les gens n'utilisent pas une telle plateforme. 
+Ensuite un concurrent assez récent, VGen, existe mais j'ai trouvé que quasi personne ne l'utilisait dans mes cercles d'amis plus ou moins proches, donc le but de ce MVP est aussi de comprendre pourquoi les gens n'utilisent pas une telle plateforme. 
 
 = Identification du public cible et personae
 
@@ -87,7 +87,7 @@ Mon public cible regroupe des adultes âgés de 18 à 50 ans, souhaitant soit co
 
 La cible géographique de la plateforme est le marché occidental, comprenant l'Europe et les Amériques, où la culture de la commission d'œuvres artistiques est déjà bien ancrée.
 
-== Les différentes personae
+== Les différents personas
 
 === Émilie - L'artiste hobbyiste
 Émilie, 29 ans, est une artiste hobbyiste qui travaille dans les ressources humaines. Durant son temps libre, elle aime dessiner, notamment des personnages humains et anthropomorphes dans un style fantasy. Depuis trois ans, elle propose ses services de commission en ligne.  
@@ -102,8 +102,8 @@ La cible géographique de la plateforme est le marché occidental, comprenant l'
 - Un *système de gestion des commandes* plus structuré et sécurisé.  
 - Une *meilleure visibilité* pour toucher un public plus large.  
 
-=== Ines - La cliente passionnée
-Ines, 21 ans, est étudiante en informatique et passionnée par sa collection d'illustrations de ses personnages originaux (OC). Elle adore les mettre en scène dans différentes situations et consacre la majorité de son argent de poche aux commissions.  
+=== Inès - La cliente passionnée
+Inès, 21 ans, est étudiante en informatique et passionnée par sa collection d'illustrations de ses personnages originaux (OC). Elle adore les mettre en scène dans différentes situations et consacre la majorité de son argent de poche aux commissions.  
 
 *Ses frustrations :*
 - Tous ses artistes favoris deviennent de plus en plus chers en gagnant en popularité. Elle cherche donc de nouveaux artistes proposant des commissions à moins de *50 CHF*, mais aucun site ne permet de filtrer facilement selon le prix
@@ -116,15 +116,15 @@ Ines, 21 ans, est étudiante en informatique et passionnée par sa collection d'
 - Une *interface intuitive* qui évite d'avoir à chercher pendant des heures sur différentes plateformes.  
 
 === Elliott - L'artiste introverti
-Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de personnages et d'environnement pour les campagnes DND (Donjon Et Dragon). Il est actuellement au chômage donc outre sa recherche de travaille, il dessine beaucoup. 
+Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de personnages et d'environnement pour les campagnes DND (Donjon Et Dragon). Il est actuellement au chômage donc outre sa recherche de travail, il dessine beaucoup. 
 
 *Ses frustrations :*
-- Elliott est très timide, il aime très peu la communications et veut la limiter au maximum syndical. Il avait vu qu'un site fonctionnait de cette manière (Skeb) mais que ce site acceptait seulement les artistes ayant un compte bancaire japonais...
-- Malheureusement, faire de la pub pour son art n'est vraiment pas son fort, il reste dans son coin et espère que des personnes le contacte pour pouvoir les dessiner. 
-- Il est dûr pour lui de trouver les prix d'autres artistes donc il ne sait pas trop comment évaluer ses propres oeuvres. Il a tendance à se sous-évaluer. 
+- Elliott est très timide, il aime très peu la communication et veut la limiter au maximum. Il avait vu qu'un site fonctionnait de cette manière (Skeb) mais que ce site acceptait seulement les artistes ayant un compte bancaire japonais...
+- Malheureusement, faire de la pub pour son art n'est vraiment pas son fort, il reste dans son coin et espère que des personnes le contactent pour pouvoir les dessiner.
+- Il lui est dur de trouver les prix d'autres artistes donc il ne sait pas trop comment évaluer ses propres œuvres. Il a tendance à se sous-évaluer.
 
 *Ce qu'il recherche :*
-- Un site lui permettant d'être découvert sans devoir faire ça pub sur des réseaux tel que Twitter et DeviantArt. 
+- Un site lui permettant d'être découvert sans devoir faire sa pub sur des réseaux tels que Twitter et DeviantArt. 
 - Une interface minimisant les interactions entre le client et l'artiste, pas de communication, pas de problème. (Il veut aussi éviter l'effet lié aux éditions de son art à la rallonge)
 - Vu qu'il dessine beaucoup, il voudrait aussi que ce site lui permette de s'organiser. Plus besoin d'utiliser 2-3 sites différents pour faire cela.
 
@@ -132,25 +132,25 @@ Elliott est un artiste de 45 ans. Il s'est spécialisé dans le concept art de p
 
 == Démarche de conception
 
-Lors de ce projet, j'ai essayé de faire un mockup en utilisant Penpot mais après quelques jours d'essai je n'ai pas réussi à avoir quelque chose de satisfaisant. Donc au final j'ai préferé formuler des besoins en texte et ensuite de les réaliser directement sur le frontend programmaticalement et aussi à l'aide d'LLMs en tout genre.
+Lors de ce projet, j'ai essayé de faire un mockup en utilisant Penpot mais après quelques jours d'essai je n'ai pas réussi à avoir quelque chose de satisfaisant. Donc au final j'ai préféré formuler des besoins en texte et ensuite les réaliser directement sur le frontend programmatiquement et aussi à l'aide d'LLMs en tout genre.
 
 == Architecture générale et navigation
 
-La plateforme se base d'une structure classique avec un header persistant contenant le logo de l'application, un bouton de recherche d'artistes, et les fonctionnalités de connexion/inscription. Lorsqu'on est connecté, on peut facilement et a tout temps accéder à la page des artistes et à son profil.
+La plateforme se base sur une structure classique avec un header persistant contenant le logo de l'application, un bouton de recherche d'artistes, et les fonctionnalités de connexion/inscription. Lorsqu'on est connecté, on peut facilement et à tout moment accéder à la page des artistes et à son profil.
 
 == Page d'accueil (Landing page)
 
-La page principale du site constitue sa landing page avec un moyen de pouvoir rapidement comprendre ce que fait cette application. L'élément central est un bouton de changement de contexte permettant à l'utilisateur de s'identifier comme artiste ou client, changeant les explications liés à l'application selon si on est artiste ou client.
+La page principale du site constitue sa landing page avec un moyen de pouvoir rapidement comprendre ce que fait cette application. L'élément central est un bouton de changement de contexte permettant à l'utilisateur de s'identifier comme artiste ou client, changeant les explications liées à l'application selon le résultat voulu à l'utilisation de cette plateforme.
 
 == Système de profils et gestion des disponibilités
 
 Une page de profil permet de voir sa disponibilité, affichée clairement par un statut ouvert/fermé pour un artiste, et de consulter les différentes commissions dessinées ou commandées respectivement selon le type d'utilisateur. 
 
-Sur cette page de profil, l'artiste peut éditer une carte de commission qui indique les prix et des exemples de ce qu'il veut dessiner. Le client peut effectuer une requête à l'artiste directement via cette carte, simplifiant le processus initial de contact.
+Sur cette page de profil, l'artiste peut éditer une carte de commission qui indique les prix et des exemples de ce qu'il peut dessiner. Le client peut effectuer une requête à l'artiste directement via cette carte, simplifiant le processus initial de contact.
 
 == Découverte d'artistes et système de filtrage
 
-Une page dédiée permet de voir tous les artistes avec leur style (grace à un système de tagging), leurs prix, et quelques exemples de leurs créations. Cette page intègre un système de filtrage par fourchette de prix, style artistique, et disponibilité. Une intégration possible avec les réseaux sociaux pour pouvoir facilement voir quels artistes un client pourrait déjà suivre sur une autre plateforme pour facilement voir ses disponibilités.
+Une page dédiée permet de voir tous les artistes avec leur style (grâce à un système de tagging), leurs prix, et quelques exemples de leurs créations. Cette page intègre un système de filtrage par fourchette de prix, style artistique, et disponibilité. Une intégration possible avec les réseaux sociaux pour pouvoir facilement voir quels artistes un client pourrait déjà suivre sur une autre plateforme pour facilement voir ses disponibilités.
 
 == Communication et gestion des flux
 
@@ -168,7 +168,7 @@ La première hypothèse était que les artistes hobbyistes auraient besoin d'une
 
 Du côté client, mon hypothèse était qu'il existe une demande pour une plateforme permettant de filtrer les artistes par prix et disponibilité. Je partais du principe que la recherche actuelle d'artistes sur les réseaux sociaux était frustrante et chronophage.
 
-Concernant les plateformes existantes, je voulais comprendre pourquoi Skeb fonctionne si bien dans son écosystème japonais et récolter plus d'informations sur VGen, notamment pourquoi mon cercle étendu d'amis ne l'aient jamais mentionné / utilisé.
+Concernant les plateformes existantes, je voulais comprendre pourquoi Skeb fonctionne si bien dans son écosystème japonais et récolter plus d'informations sur VGen, notamment pourquoi mon cercle étendu d'amis ne l'avait jamais mentionné / utilisé.
 
 Une autre hypothèse importante était que l'opacité des prix constitue un frein majeur pour les clients. Je supposais que beaucoup abandonnent leurs recherches faute d'informations tarifaires claires, et que les artistes peinent à se positionner par manque de transparence du marché.
 
@@ -178,25 +178,25 @@ Pour valider ces hypothèses, j'ai mené des entretiens d'environ 20-30 minutes 
 
 = Entretiens effectués avec le public cible
 
-== Interview qualitatives
+== Interviews qualitatives
 
-J'ai mené 5 interviews approfondies entre le 30 mars et le 7 avril 2025 avec différents profils d'utilisateurs représentatifs de mon public cible. Ces entretiens d'environ 20-30 minutes chacun ont suivi la méthodologie du Mom Test pour éviter les biais de confirmation. La totalité des personnes interviewé est âgée entre 20 et 30 ans.
+J'ai mené 5 interviews approfondies entre le 30 mars et le 7 avril 2025 avec différents profils d'utilisateurs représentatifs de mon public cible. Ces entretiens d'environ 20-30 minutes chacun ont suivi la méthodologie du Mom Test pour éviter les biais de confirmation. La totalité des personnes interviewées est âgée entre 20 et 30 ans.
 
-Les interviews sont résumés en détail en annexe mais un très bref résumé des points principaux se trouve dans ce rapport.
+Les interviews sont résumées en détail en annexe mais un très bref résumé des points principaux se trouve dans ce rapport.
 
 === Profil 1 : L'artiste occasionnel (31 mars)
 
 *Contexte :* Artiste réalisant 3-6 commissions par an, principalement pour des amis via Discord et Twitter.
 
 *Points clés relevés :*
-- Acquisition client basée sur le bouche-à-oreille uniquement
+- Acquisition clients basée sur le bouche-à-oreille uniquement
 - Apprécie le modèle centralisé de Skeb mais critique vGen pour son manque de catégorisation
 - Propose un système de sous-communautés par fandom (Furry, Pokémon, etc.)
 - Ne justifierait pas l'usage d'une plateforme spécialisée avec son faible volume d'activité
 - Utilise PayPal malgré les frais élevés par habitude
-- Valorise l'aspect communautaire des échanges personnels
+- Valorise l'aspect communautaire des commissions d'art et des échanges personnels client/artiste
 
-*Validation d'hypothèses :* Contredit mon hypothèse initiale sur les artistes hobbyistes - une plateforme serait plus pertinente pour les artistes semi-professionnels.
+*Validation d'hypothèses :* Contredit mon hypothèse initiale sur les artistes hobbyistes, une plateforme serait plus pertinente pour les artistes semi-professionnels?
 
 === Profil 2 : L'artiste hybride client/vendeur (6 avril)
 
@@ -238,13 +238,13 @@ Les interviews sont résumés en détail en annexe mais un très bref résumé d
 
 *Retours sur Skeb :*
 - *Avantage majeur :* Connexion Twitter montrant disponibilité en temps réel
-- Économies significatives : 15€ vs 200€ pour commissions équivalentes
+- Économies significatives : exemple de 15€ vs 200€ pour commissions équivalentes artiste japonais vs occidental
 - Processus automatisé évite perte de temps inutile pour l'artiste
-- *Inconvénient :* Problèmes de traduction perdant des détails
+- *Inconvénient :* Problèmes de traduction perdant des détails et manque d'édition du produit final
 
 *Habitudes hors Skeb :*
 - Schéma classique Twitter → Discord
-- Stratégie "planter une graine" - apprécie l'attente longue
+- Stratégie "planter une graine", apprécie l'attente longue
 - *Frustration :* Dépendance aux algorithmes réseaux sociaux
 
 *Validation forte :* Démontre la viabilité du modèle automatisé et l'importance d'une intégration avec réseau social
@@ -291,7 +291,7 @@ Du côté client, cette recherche passive engendre des pertes de temps considér
 
 L'expérience Skeb illustre parfaitement les bénéfices d'une approche automatisée, avec des retours très positifs de la part du gros client interviewé. Les 36% de clients ayant déjà utilisé une plateforme de commissions confirment cette tendance avec des retours globalement positifs sur la facilité d'utilisation et la sécurité des paiements.
 
-Cependant, un paradoxe émerge : malgré les frustrations exprimées et les fonctionnalités souhaitées clairement identifiées, seuls trois artistes sur 17 utilisent actuellement des plateformes spécialisées. L'interet d'une telle plateforme n'est peut-être pas assez grand pour effectuer un changement vers celle-ci.
+Cependant, un paradoxe émerge : malgré les frustrations exprimées et les fonctionnalités souhaitées clairement identifiées, seuls trois artistes sur 17 utilisent actuellement des plateformes spécialisées. L'intérêt d'une telle plateforme n'est peut-être pas assez grand pour effectuer un changement vers celle-ci.
 
 == Le défi de la masse critique
 
@@ -301,9 +301,9 @@ Cette réalité questionne fondamentalement la viabilité d'une nouvelle platefo
 
 = Choix technologiques et réalisation du MVP
 
-== Choix technologique
+== Choix technologiques
 
-Avec mes compétences, j'ai rapidement choisi d'utiliser le framework Quarkus qui est parfait pour mon type d'application web. Etant plus à l'aise avec Java, Quarkus permet d'effectuer un backend dans ce langage et d'intégrer le frontend dans une même application. Un autre point fort de Quarkus est sa possibilité de faire du hot-reloading de l'entièreté de l'application, peu importe que les changements soient dans le backend ou frontend. J'ai aussi utilisé l'ORM Hibernate JPA qui permet de générer les éléments de la base de données de façon quasi transparente à partir d'objets Java annotés `@Entity`.
+Avec mes compétences, j'ai rapidement choisi d'utiliser le framework Quarkus qui est parfait pour mon type d'application web. Étant plus à l'aise avec Java, Quarkus permet d'effectuer un backend dans ce langage et d'intégrer le frontend dans une même application. Un autre point fort de Quarkus est sa possibilité de faire du hot-reloading de l'entièreté de l'application, peu importe que les changements soient dans le backend ou frontend. J'ai aussi utilisé l'ORM Hibernate JPA qui permet de générer les éléments de la base de données de façon quasi transparente à partir d'objets Java annotés `@Entity`.
 
 Pour le frontend, j'ai utilisé Vite + React qui s'intègre avec une extension Quarkus nommée Quinoa qui permet de lancer Vite et Quarkus en une seule commande et de faire le linkage entre les deux entités.
 
@@ -313,20 +313,20 @@ De plus, j'ai organisé ce projet en polyrepo : un repository pour la partie ax�
 
 J'ai commencé par établir un UML basique pour mettre en place le backend et les différentes entités de ma base de données, vu que le site est intrinsèquement stateful.
 
-Ensuite j'ai du trouver un nom, j'ai choisi CoPla, dérivé simplement de #strong[Co]mmission #strong[Pla]tform
+Ensuite j'ai dû trouver un nom, j'ai choisi CoPla, dérivé simplement de #strong[Co]mmission #strong[Pla]tform
 
-La première étape a été de setup les pages de login et register, étant donné que c'est un des éléments les plus importants et basique de l'application. J'ai établi une gestion d'utilisateurs basique avec les fonctionnalités d'inscription et de connexion sécurisées en utilisant Quarkus Security.
+La première étape a été de setup les pages de login et register, étant donné que c'est un des éléments les plus importants et basiques de l'application. J'ai établi une gestion d'utilisateurs basique avec les fonctionnalités d'inscription et de connexion sécurisées en utilisant Quarkus Security.
 
-Ensuite, j'ai créé une page utilisateur basique que j'ai ensuite complétée avec la possibilité d'ajouter des informations liées aux commissions. J'ai mis en place deux types de profils distincts : le profil client et le profil artiste. Dans ma conception, l'artiste extend le client dans ma hiérarchie d'objets, permettant aux artistes d'également commander des œuvres.
+Ensuite, j'ai créé une page utilisateur simple premièrement que j'ai ensuite complétée avec la possibilité d'ajouter des informations liées aux commissions. J'ai mis en place deux types de profils distincts : le profil client et le profil artiste. Dans ma conception, l'artiste `extend` le client dans ma hiérarchie d'objets, permettant aux artistes d'également commander des œuvres.
 
 Pour les artistes, ils peuvent indiquer les tags qui les représentent. Ils ont aussi accès à une carte de commissions avec différents éléments et prix. J'ai aussi ajouté un bouton permettant à l'artiste d'indiquer s'il est ouvert aux commissions ou non, répondant directement au besoin identifié lors des interviews concernant la visibilité de la disponibilité.
 
 Le système vérifie automatiquement le type d'utilisateur et affiche les informations correspondantes selon qu'il s'agisse d'un artiste ou d'un client.
 
-En me basant sur mes interviews, j'ai remarqué que l'intégration avec un réseau social était quasi-obligatoire vu l'usage massif de ces plateformes, j'ai ajouté un système de vérification via BlueSky. J'ai choisi BlueSky plutôt que Twitter/X car c'est une plateforme émergente qui gagne de plus en plus d'utilisateurs, alors que Twitter est un peu problématique actuellement... De plus, l'api de BlueSky, AT-Proto est gratuit à l'utilisation.
+En me basant sur mes interviews, j'ai remarqué que l'intégration avec un réseau social était quasi-obligatoire vu l'usage massif de ces plateformes, j'ai ajouté un système de vérification via BlueSky. J'ai choisi BlueSky plutôt que Twitter/X car c'est une plateforme émergente qui gagne de plus en plus d'utilisateurs, alors que Twitter est un peu problématique actuellement... De plus, l'API de BlueSky, AT-Proto est gratuite à l'utilisation ce qui n'est pas le cas de Twitter/X avec un abonnement a plusieurs miliers de francs...
 
 Le système n'est pas encore entièrement fonctionnel mais fonctionne partiellement, permettant une vérification d'identité qui renforce la confiance entre artistes et clients.
-Il est possible aussi de vérifier si des artistes que l'ont suit sur BlueSky sont présent sur CoPla mais pour l'instant cette vérification se fait seulement à la vérification. J'ai eu du mal à le faire après coup.
+Il est possible aussi de vérifier si des artistes qu'on suit sur BlueSky sont présents sur CoPla mais pour l'instant cette synchronisation se fait seulement à la vérification. J'ai eu du mal à le faire après coup, par exemple periodiquement.
 
 === Itérations sur l'interface
 
@@ -336,7 +336,7 @@ Le MVP actuel propose donc une plateforme fonctionnelle permettant l'inscription
 
 === Ce qu'il manque
 
-Par rapport à ma proposition initiale, il manque tout de même la gestion de messaging, de gallerie pour les artists, la gestion de commission via kanban intégré. J'ai décider de prioriser l'affichage des artistes et de la disponibilité ainsi que la géstion de réseau sociaux. 
+Par rapport à ma proposition initiale, il manque tout de même la gestion de messaging, de galerie pour les artistes, la gestion de commission via kanban intégré. J'ai décidé de prioriser l'affichage des artistes et de la disponibilité ainsi que la gestion de réseaux sociaux. 
 
 == Déploiement sur Google Cloud
 
@@ -346,78 +346,78 @@ L'application étant une application web, j'ai dû la déployer sur un service c
 
 J'ai opté pour une architecture containérisée utilisant Docker Compose sur une machine virtuelle Google Cloud. Mon docker-compose lance alors quatre container différents: 
 
-Le conteneur PostgreSQL gère la base de données. J'ai choisi PostgreSQL car c'est un peu le best du best avec Quarkus et Hibernate JPA. Pour l'instant je perds toutes les données lors du redémarrage ce qui n'est pas trop grave, l'application n'étant pas complète dans ses features. Ensuite il y a le conteneur Quarkus qui héberge l'application elle-même. Le conteneur NGINX sert de reverse proxy et gère le routage entre HTTP et HTTPS. L'utilisation d'HTTPS est obligatoire car toute application gérant des comptes utilisateurs doit être un minimum sécurisée, ensuite, l'authentification OAuth d'AT-Proto refuse de fonctionner sur des sites non sécurisés donc je n'ai pas vraiment le choix!
+Le conteneur PostgreSQL gère la base de données. J'ai choisi PostgreSQL car c'est un peu le best du best avec Quarkus et Hibernate JPA. Pour l'instant je perds toutes les données lors du redémarrage ce qui n'est pas trop grave, l'application n'étant pas complète dans ses features. Ensuite il y a le conteneur Quarkus qui héberge l'application elle-même. Le conteneur NGINX sert de reverse proxy et gère le routage entre HTTP et HTTPS. L'utilisation d'HTTPS est obligatoire car toute application gérant des comptes utilisateurs doit être un minimum sécurisée, ensuite, l'authentification OAuth d'AT-Proto refuse de fonctionner sur des sites non sécurisés donc je n'ai pas vraiment le choix !
 
 Le quatrième conteneur, Watchtower, surveille DockerHub toutes les 5 minutes pour détecter de nouvelles versions de l'application. Cette surveillance automatique s'intègre avec ma pipeline CI/CD qui compile le projet Quarkus en image native et la pousse sur DockerHub à chaque commit sur la branche principale.
 
 
 = Tests utilisateurs
 
-J'ai réussi à donner l'application à un petit groupe restreint de personnes qui constituent mon public cible, j'ai aussi recontacté l'un des artistes que j'ai interviewé pour avoir un retour sur ce qui est déjà disponible. Ces tests ont pu mettre en lumière certains soucis liés à l'UI, et ont pu mettre en avant les besoins réel des utilisateurs.
+J'ai réussi à donner l'application à un petit groupe restreint de personnes qui constituent mon public cible, j'ai aussi recontacté l'un des artistes que j'ai interviewés pour avoir un retour sur ce qui est déjà disponible. Ces tests ont pu mettre en lumière certains soucis liés à l'UI, et ont pu mettre en avant les besoins réels des utilisateurs.
 
 == Les retours positifs
 
 L'accueil général de la plateforme s'est révélé très positif. Les utilisateurs ont particulièrement apprécié la page d'accueil qui va "droit au but" et permet aux nouveaux utilisateurs de comprendre immédiatement l'objectif du site, c'était un feedback récurrent donc très positif. L'interface générale a été jugée claire et simple, offrant un contraste efficace avec la "complexité de plateformes comme Patreon" où il est difficile de trouver les fonctionnalités principales.
 
-Les utilisateurs voient un réel potentiel avec l'intégration de BlueSky, et plus de la moitié des testeurs ont essayé l'intégration avec BlueSky, même si la fonctionnalité de vérification de following n'était pas testable pour eux (Ils ne suivaient personne présent sur la plateforme, ce qui fais sens sachant qu'il n'y a que des utilisateurs fictifs sur la plateforme).
+Les utilisateurs voient un réel potentiel avec l'intégration de BlueSky, et plus de la moitié des testeurs ont essayé l'intégration avec BlueSky, même si la fonctionnalité de vérification de following n'était pas testable pour eux (Ils ne suivaient personne présent sur la plateforme, ce qui fait sens sachant qu'il n'y a que des utilisateurs fictifs sur la plateforme).
 
 L'aspect visuel de l'application, notamment le thème sombre avec les accents violets, a été bien reçu. Les testeurs ont noté que cette combinaison attire naturellement l'œil vers les éléments importants comme les cartes de commission et les bannières d'artistes.
 
-Les fonctionnalités de filtrage par prix, styles artistiques et tags ont été identifiées comme particulièrement utiles pour aider dans le processus de recherche d'artistes, répondant directement a certains besoins exprimés lors des interviews initiales.
+Les fonctionnalités de filtrage par prix, styles artistiques et tags ont été identifiées comme particulièrement utiles pour aider dans le processus de recherche d'artistes, répondant directement à certains besoins exprimés lors des interviews initiales.
 
 == Les retours négatifs
 
-Plusieurs problèmes techniques ont été identifiés. J'ai eu l'un des testeur qui s'est amusé a essayer de casser la base de donnée et les entrées utilisateurs, ce qui est très utile pour moi. Selon ce testeur, les tokens de Quarkus Security n'ont pas l'air très sécurisé. C'est quelque chose à creuser lors du processus d'amélioration de l'application.
+Plusieurs problèmes techniques ont été identifiés. J'ai eu l'un des testeurs qui s'est amusé à essayer de casser la base de données et les entrées utilisateurs, ce qui est très utile pour moi. Selon ce testeur, les tokens de Quarkus Security n'ont pas l'air très sécurisés. C'est quelque chose à creuser lors du processus d'amélioration de l'application.
 
-Ensuite il y a eu de nombreux problèmes liés à l'interface : la bio utilisateur ne peut pas être modifiée(normale, elle n'est pas encore implémenté), le bouton de création de requête de commission n'est pas fonctionnel(normal aussi), et certains noms d'utilisateur invalides (incluant du code JavaScript) cassent l'affichage des profils même si aucune injection XSS ne se produit.
+Ensuite il y a eu de nombreux problèmes liés à l'interface : la bio utilisateur ne peut pas être modifiée (normale, elle n'est pas encore implémentée), le bouton de création de requête de commission n'est pas fonctionnel (normal aussi), et certains noms d'utilisateur invalides (incluant du code JavaScript) cassent l'affichage des profils même si aucune injection XSS ne se produit.
 
 L'affichage des emails sur les profils publics pose un problème de confidentialité que plusieurs utilisateurs ont souligné. Les artistes devraient pouvoir contrôler la visibilité de ces informations personnelles, de plus beaucoup d'entre eux peuvent utiliser des emails qui leakent des données personnelles (nom et prénom).
 
 L'utilisation de l'espace écran, particulièrement sur desktop, est problématique avec trop d'espaces vides sur les pages de profil d'artistes. Les utilisateurs suggèrent d'agrandir les bannières et cartes de commission pour mieux utiliser l'espace disponible, le problème est que le site occupe 50% de l'espace de l'écran, ce qui est bien pour du mobile, mais pour de l'utilisation desktop, ce n'est pas bon.
 
-Ensuite, dans la partie plus utile du site, j'ai eu le retour qu'il fallait moins montrer la landing page et plus directement montrer les artistes, les mettre en valeur vu qu'ils sont tout de même central au site, ce qui manque pour le moment. J'ai aussi eu comme retour qu'avoir un système de follow en plus du système bluesky serait super utile, peut-être pas tous les artistes n'utilisent BlueSky (Ce qui est le cas).
+Ensuite, dans la partie plus utile du site, j'ai eu le retour qu'il fallait moins montrer la landing page et plus directement montrer les artistes, les mettre en valeur vu qu'ils sont tout de même centraux au site, ce qui manque pour le moment. J'ai aussi eu comme retour qu'avoir un système de follow en plus du système BlueSky serait super utile, peut-être que tous les artistes n'utilisent pas BlueSky (ce qui est le cas).
 
-Sinon quelques bug d'interfaces par ci par là ont été noté.
+Sinon quelques bugs d'interface par-ci par-là ont été notés.
 
 == Conclusion des tests
 
 Ces tests utilisateurs ont confirmé la pertinence du concept et de l'approche générale de CoPla. Les utilisateurs comprennent immédiatement la valeur ajoutée de la plateforme et apprécient sa simplicité comparée aux solutions existantes. L'intégration BlueSky est perçue comme super  utile.
 
-Même s'il y a des points négatif, j'ai eu beaucoup de retour encourageant, après peut-être que ces retours étaient biaisé... Mais globalement c'est une avalanche de bonnes nouvelles.
+Même s'il y a des points négatifs, j'ai eu beaucoup de retours encourageants, après peut-être que ces retours étaient biaisés... Mais globalement c'est une avalanche de bonnes nouvelles.
 
 = Pérennité du projet
 
 Pour le moment, le projet, par manque de temps, n'est pas très pérenne. Je n'ai pas encore pu documenter le flow des requêtes entre le backend et le frontend. De plus il n'y a aucun test pour le moment, vu que j'ai passé beaucoup de temps sur les features qui étaient selon moi les plus importantes. Donc finalement la reprise du projet pourrait se faire avec quelques accrocs. 
 
-Néanmoins j'ai commencé à documenter comment mettre en place une VM, mettre en place le docker compose avec NGinx pour pouvoir faire le routing sur l'application. Un tel document est selon moi très important, surtout du fait que le projet ne risque pas de rester sur Google Cloud dans le temps avec des alternatives locales qui sont plus attrayantes (mais plus cher !!).
+Néanmoins j'ai commencé à documenter comment mettre en place une VM, mettre en place le docker compose avec NGinx pour pouvoir faire le routage sur l'application. Un tel document est selon moi très important, surtout du fait que le projet ne risque pas de rester sur Google Cloud dans le temps avec des alternatives locales qui sont plus attrayantes (mais plus chères !!).
 
 Du côté positif, certains éléments sont déjà en place pour faciliter la maintenance future. L'utilisation de Git avec une pipeline CI/CD automatisée qui compile l'application en image Docker native et la pousse sur DockerHub constitue une base solide. Le système Watchtower surveille automatiquement les nouvelles versions et redéploie l'application, ce qui automatise une partie importante du processus de déploiement. L'architecture containerisée avec Docker Compose facilite aussi le déploiement sur n'importe quel environnement, que ce soit en local ou sur un autre fournisseur cloud.
 
 La stack technologique choisie avec Quarkus, React et PostgreSQL représente des technologies populaires et bien documentées, ce qui faciliterait la reprise par d'autres développeurs. Le polyrepo organisé sépare clairement les préoccupations entre le rapport académique et le code de l'application elle-même. 
 
-Cependant, plusieurs éléments critiques manquent cruellement. L'absence totale de tests, qu'ils soient unitaires, d'intégration ou end-to-end, représente le risque le plus important pour la maintenance future. Toute modification du code se fait actuellement à l'aveugle... Il y a aussi quelque bug dans l'application comme mentionné dans la partie feedback utilisateurs, donc elle n'est pas encore 100% fonctionnelle même dans sa version écourtée.
+Cependant, plusieurs éléments critiques manquent cruellement. L'absence totale de tests, qu'ils soient unitaires, d'intégration ou end-to-end, représente le risque le plus important pour la maintenance future. Toute modification du code se fait actuellement à l'aveugle... Il y a aussi quelques bugs dans l'application comme mentionné dans la partie feedback utilisateurs, donc elle n'est pas encore 100% fonctionnelle même dans sa version écourtée.
 
-== Aspect financiers
+== Aspects financiers
 
-Le "seul" moyen pour que l'application soit perenne dans le temps financièrement est de mettre en place une commission#footnote[sens usuel] sur les commissions des artistes. Plus tôt dans le document j'ai pu mentionner 4% mais la valeur d'une telle commission doit se choisir en prenant en compte des prix d'hébergement, de la masse d'utilisateur, de plus de recherche sur les commissions que prennent les sites concurrents. Le problème est que pour mettre en place ce système, il faut que l'entièreté des features projetée du site soit complètes, ce qui n'est pas le cas pour le moment.
+Le "seul" moyen pour que l'application soit pérenne dans le temps financièrement est de mettre en place une commission#footnote[sens usuel] sur les commissions des artistes. Plus tôt dans le document j'ai pu mentionner 4% mais la valeur d'une telle commission doit se choisir en prenant en compte les prix d'hébergement, la masse d'utilisateurs, et davantage de recherches sur les commissions que prennent les sites concurrents. Le problème est que pour mettre en place ce système, il faut que l'entièreté des features projetées du site soient complètes, ce qui n'est pas le cas pour le moment.
 
-Je dis que c'est le seul moyen car selon moi et d'autres artistes, l'idée de mettre des pubs sur une telle plateforme n'a pas lieu, et mettre en avant les artistes qui paierait un abonnement poserait un réel problème éthique.
+Je dis que c'est le seul moyen car selon moi et d'autres artistes, l'idée de mettre des pubs sur une telle plateforme n'a pas lieu d'être, et mettre en avant les artistes qui paieraient un abonnement poserait un réel problème éthique.
 
 == Conclusion de la pérennité
 
-Donc pour rendre l'application perenne, il travailler sur ces points ci en premier lieu : les tests, la documentation technique de l'api et les corrections de problèmes sur les features actuelles, avant de pousser plus de features. Ensuite une fois que cette première phase de pérennité est développée, je peux mettre en place le reste des features et par consequent pouvoir avoir un objectif de perennité financière.
+Donc pour rendre l'application pérenne, il faut travailler sur ces points-ci en premier lieu : les tests, la documentation technique de l'API et les corrections de problèmes sur les features actuelles, avant de pousser plus de features. Ensuite une fois que cette première phase de pérennité est développée, je peux mettre en place le reste des features et par conséquent pouvoir avoir un objectif de pérennité financière.
 
 = Difficultés rencontrées et solutions
 
-La grosse difficulté de ce projet était la partie frontend, je l'ai déjà expliqué plus tôt dans le rapport mais le problème d'un tel MVP est que la partie visuelle de l'application est tout aussi importante que la partie fonctionnelle. Personne ne veut utiliser quelque chose qui ressemble à un site de 2005. Pour pallier à ça j'ai itéré beaucoup de fois sur cet UI en utilisant des LLMs avec plus ou moins de succès. J'ai tout de même un contrôle quasi total du code mais le code développé avec IA est quelque peu spaguetti et aussi manque beaucoup de bonne manière d'effectuer ce genre d'interface, connaissance que je n'ai juste pas.
+La grosse difficulté de ce projet était la partie frontend, je l'ai déjà expliqué plus tôt dans le rapport mais le problème d'un tel MVP est que la partie visuelle de l'application est tout aussi importante que la partie fonctionnelle. Personne ne veut utiliser quelque chose qui ressemble à un site de 2005. Pour pallier à ça j'ai itéré beaucoup de fois sur cette UI en utilisant des LLMs avec plus ou moins de succès. J'ai tout de même un contrôle quasi total du code mais le code développé avec IA est quelque peu spaghetti et manque aussi de bonnes manières et pratiques d'effectuer ce genre d'interface, connaissances que je n'ai juste pas.
 
-La seconde difficulté était l'intégration de l'api AT-Proto avec OAuth. La documentation est très menue (un simple read me sur le repo git de At-Proto avec juste un exemple de code). J'ai aussi le problème de pouvoir garder une sorte de token dans la base de donnée pour pouvoir effectuer des synchronisations avec BlueSky après coup. Pour le moment je ne sais pas trop comment faire et je manque de temps pour chercher plus de solutions. Cette limitation empêche notamment la synchronisation en temps réel des statuts de disponibilité, une fonctionnalité pourtant très importante selon les interviews et retour utilisateur.
+La seconde difficulté était l'intégration de l'API AT-Proto avec OAuth. La documentation est très menue (un simple read me sur le repo git d'At-Proto avec juste un exemple de code). J'ai aussi le problème de pouvoir garder une sorte de token dans la base de données pour pouvoir effectuer des synchronisations avec BlueSky après coup. Pour le moment je ne sais pas trop comment faire et je manque de temps pour chercher plus de solutions. Cette limitation empêche notamment la synchronisation en temps réel des statuts de disponibilité, une fonctionnalité pourtant très importante selon les interviews et retours utilisateur.
 
-Ensuite une grande difficulté était le travail solo, à l'HEIG-VD on s'est habitué à ne jamais travailler tout seul. Donc c'était compliqué de se motiver et aussi de faire des choix pour l'ui mais aussi le backend. 
+Ensuite une grande difficulté était le travail solo, à l'HEIG-VD on s'est habitués à ne jamais travailler tout seul. Donc c'était compliqué de se motiver et aussi de faire des choix pour l'UI mais aussi le backend. 
 
 = Conclusion
 
-Au final, ce projet d'MVP était très intéressant et formateur. Devoir chercher des idées, faire des interviews, apprendre a pitcher son idée et apprendre à recevoir des feedbacks... Ce sont des choses qu'on apprend pas forcément dans le contexte de l'HEIG-VD.
+Au final, ce projet d'MVP était très intéressant et formateur. Devoir chercher des idées, faire des interviews, apprendre à pitcher son idée et apprendre à recevoir des feedbacks... Ce sont des choses qu'on n'apprend pas forcément dans le contexte de l'HEIG-VD.
 
 Ce projet m'a particulièrement marqué par la complexité de créer quelque chose d'entièrement nouveau dans un marché déjà établi. Les interviews ont révélé un paradoxe fascinant : tout le monde se plaint de l'écosystème actuel (Twitter → Discord → PayPal), mais très peu sont prêts à changer leurs habitudes pour quelque chose de mieux. C'est probablement le défi le plus dur à surmonter dans la recherche d'un produit viable.
 
@@ -425,16 +425,16 @@ D'un point de vue technique, développer seul une application full-stack m'a pou
 
 Les retours des tests utilisateurs ont été globalement encourageants, validant l'hypothèse qu'il peut y avoir un besoin pour une plateforme comme CoPla. Reste maintenant à voir si cette validation se traduirait par une adoption réelle à plus grande échelle, chose très importante pour ce type de plateforme...
 
-Si je devais continuer ce projet, ce que je vais sûrement faire, les priorités seraient claires : tests automatisés, correction des vulnérabilités de sécurité, et surtout, développement des fonctionnalités manquantes comme le système de messaging et le kanban intégré. Peut être aussi voir avec des personnes de mon entourage pour développer une interface qui cible peut-être mieux les utilisateurs. Le but est vraiment de pouvoir gérer ces commissions de A à Z sur Copla!
+Si je devais continuer ce projet, ce que je vais sûrement faire, les priorités seraient claires : tests automatisés, correction des vulnérabilités de sécurité, et surtout, développement des fonctionnalités manquantes comme le système de messaging et le kanban intégré. Peut-être aussi voir avec des personnes de mon entourage pour développer une interface qui cible peut-être mieux les utilisateurs. Le but est vraiment de pouvoir gérer ces commissions de A à Z sur CoPla !
 
-Finalement c'était une experience enrichissante et je suis bien content d'avoir pu travailler sur ce projet.
+Finalement c'était une expérience enrichissante et je suis bien content d'avoir pu travailler sur ce projet.
 
 #pagebreak()
 = Annexes
 
 == Interviews utilisateurs détaillées
 
-Voici les résumés détaillés des interviews 1 on 1 que j'ai pu avoir avec mon publique cible
+Voici les résumés détaillés des interviews 1 on 1 que j'ai pu avoir avec mon public cible
 
 == 31 Mars 2025 - Artiste occasionnel 
 
@@ -486,11 +486,11 @@ Cet entretien informel (entre deux game) a confirmé la réputation de vGen comm
 
 Le principal défi identifié concernant l'adoption de nouvelles plateformes reste la fragmentation de l'écosystème. Aucune plateforme comme SKeb ou VGen ne centralise l'ensemble des artistes désirés, obligeant les clients à multiplier les comptes et les recherches...
 
-== Interview quantitative détaillée
+== Interviews quantitatives détaillées
 
-Voici les détails des interview quantitatives :
+Voici les détails des interviews quantitatives :
 
-=== Coté artiste
+=== Côté artiste
 
 Sur les 21 artistes ayant répondu, un peu plus de la moitié considèrent qu'ils dessinent plutôt beaucoup, et seulement 4 d'entre eux ne vendent pas de commissions. Cela me laisse donc 17 artistes qui vendent des commissions et sont des utilisateurs potentiels de l'application.
 
@@ -512,4 +512,4 @@ Une écrasante majorité trouve leurs artistes via les réseaux sociaux, princip
 
 Environ 32% des clients ont déjà utilisé une plateforme de commission, et parmi eux, les retours sont globalement positifs. Ils mentionnent notamment la facilité d'utilisation et de trouver des artistes disponibles, la sécurité des paiements et la clarté du processus. Les critiques portent principalement sur le manque de suivi des travaux en cours sur certaines plateformes comme Skeb ou des problèmes de communication.
 
-Concernant les motivations d'adoption d'une plateforme de commission quelques fonctionnalités ressortent très clairement. La facilité de trouver des artistes disponibles arrive en tête avec 58% des répondants, suivie de près par les notifications d'ouverture de commissions (51%) et la possibilité de retrouver facilement des artistes déjà suivis (53%). Le filtrage par prix est aussi très importante pour 44% des clients. Ses chiffres deviennent encore plus élevé si on retire les 22% qui ont indiqué déjà utiliser une telle plateforme!
+Concernant les motivations d'adoption d'une plateforme de commission, quelques fonctionnalités ressortent très clairement. La facilité de trouver des artistes disponibles arrive en tête avec 58% des répondants, suivie de près par les notifications d'ouverture de commissions (51%) et la possibilité de retrouver facilement des artistes déjà suivis (53%). Le filtrage par prix est aussi très important pour 44% des clients. Ces chiffres deviennent encore plus élevés si on retire les 22% qui ont indiqué déjà utiliser une telle plateforme !
