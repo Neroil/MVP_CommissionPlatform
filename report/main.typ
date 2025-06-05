@@ -77,7 +77,7 @@ L'idée est née de l'observation personnelle des difficultés rencontrées dans
 
 Dans mon cercle personnel, j'ai constaté qu'il existe une plateforme spécialisée que beaucoup de personnes utilisent, Skeb. Cette plateforme est exactement le type de plateforme que je cherche mais elle a un très grand défaut : Seuls les artistes japonais peuvent s'y inscrire pour vendre leur art. Donc c'est de la que vient l'idée de faire ma propre plateforme pour pallier à ce manque.
 
-Cette réstriction géographique vient du fait que le moyen de paiement utilisé fonctionne avec le système bancaire japonais, donc quiconque ne disposant pas d'un tel compte se trouve dans l'impossibilité d'utiliser cette plateforme. Cette restriction n'est pas présente pour les clients vu qu'on peut utiliser une carte de crédit pour effectuer des paiements sur cette plateforme. 
+Cette restriction géographique vient du fait que le moyen de paiement utilisé fonctionne avec le système bancaire japonais, donc quiconque ne disposant pas d'un tel compte se trouve dans l'impossibilité d'utiliser cette plateforme. Cette restriction n'est pas présente pour les clients vu qu'on peut utiliser une carte de crédit pour effectuer des paiements sur cette plateforme. 
 
 Ensuite un concurrent assez récent, VGen, existe mais j'ai trouvé que quasi personne ne l'utilisait dans mes cercles d'amis plus ou moins proches, donc le but de ce MVP est aussi de comprendre pourquoi les gens n'utilisent pas une telle plateforme. 
 
@@ -180,7 +180,7 @@ Pour valider ces hypothèses, j'ai mené des entretiens d'environ 20-30 minutes 
 
 == Interviews qualitatives
 
-J'ai mené 5 interviews approfondies entre le 30 mars et le 7 avril 2025 avec différents profils d'utilisateurs représentatifs de mon public cible. Ces entretiens d'environ 20-30 minutes chacun ont suivi la méthodologie du Mom Test pour éviter les biais de confirmation. La totalité des personnes interviewées est âgée entre 20 et 30 ans.
+J'ai mené 5 interviews approfondies entre le 30 mars et le 7 avril 2025 avec différents profils d'utilisateurs représentatifs de mon public cible. Ces entretiens d'environ 20-30 minutes chacun ont suivi la méthodologie du Mom Test pour éviter les biais de confirmation. La totalité des personnes interviewées est âgée de 20 à 30 ans.
 
 Les interviews sont résumées en détail en annexe mais un très bref résumé des points principaux se trouve dans ce rapport.
 
@@ -221,7 +221,7 @@ Les interviews sont résumées en détail en annexe mais un très bref résumé 
 
 *Défis identifiés :*
 - Gestion administrative rudimentaire (Excel)
-- Processus collaboratif complexe nécessitant validations constantes
+- Processus collaboratif complexe nécessitant des validations constantes
 - Dépendance aux algorithmes des réseaux sociaux
 - *Crainte principale :* Se retrouver sans commissions en fin de file
 
@@ -273,11 +273,11 @@ Les interviews menées révèlent un écosystème où artistes et clients navigu
 
 Du côté des artistes, on observe une grande disparité dans les volumes d'activité, allant de l'artiste occasionnel produisant 3 à 6 commissions par an jusqu'à celui en transition vers le full-time avec 2-3 œuvres hebdomadaires. Les données quantitatives révèlent que 82% des artistes vendeurs produisent moins de 10 commissions par an, confirmant la prédominance des artistes occasionnels.
 
-Cette différence influence directement leur rapport aux plateformes spécialisées, les artistes occasionnels considèrent qu'une plateforme dédiée ne justifierait pas l'investissement en temps nécessaire, tandis que ceux plus actifs y voient un réel potentiel de professionnalisation. On trouve ici une contradiction avec mon hypothèse initiale où je pensais faire une plateforme principalement pour les artistes hobbyistes. Finalement, une telle plateforme serait-elle plus intéressante pour les artistes semi-pro voire professionnels ?
+Cette différence influence directement leur rapport aux plateformes spécialisées, les artistes occasionnels considèrent qu'une plateforme dédiée ne justifierait pas l'investissement en temps nécessaire, tandis que ceux plus actifs y voient un réel potentiel de professionnalisation. On trouve ici une contradiction avec mon hypothèse initiale où je pensais faire une plateforme principalement pour les artistes hobbyistes. Finalement, une telle plateforme serait-elle plus intéressante pour les artistes semi-pros, voire professionnels ?
 
 == Validation des frustrations identifiées
 
-La gestion actuelle des commissions suit un schéma typique Discord-Twitter-PayPal que l'enquête quantitative confirme massivement : 95% des clients trouvent leurs artistes via les réseaux sociaux. Ce processus dispersé génère effectivement des frustrations réelles puisque 30% des artistes expriment une insatisfaction marquée avec leur système actuel de gestion.
+La gestion actuelle des commissions suit un schéma typique Discord-Twitter-PayPal que l'enquête quantitative confirme massivement : 95% des clients trouvent leurs artistes via les réseaux sociaux. Ce processus dispersé génère effectivement des frustrations réelles, puisque 30% des artistes expriment une insatisfaction marquée avec leur système actuel de gestion.
 
 L'opacité des prix se confirme comme un gros enjeu. Les données montrent que 65% des artistes facturent entre 20-100 USD par commission avec une tarification par pièce, mais les clients peinent à accéder à cette information facilement. Cette frustration se traduit dans les fonctionnalités les plus demandées : 44% des clients veulent un filtrage par prix.
 
@@ -326,7 +326,7 @@ Le système vérifie automatiquement le type d'utilisateur et affiche les inform
 En me basant sur mes interviews, j'ai remarqué que l'intégration avec un réseau social était quasi-obligatoire vu l'usage massif de ces plateformes, j'ai ajouté un système de vérification via BlueSky. J'ai choisi BlueSky plutôt que Twitter/X car c'est une plateforme émergente qui gagne de plus en plus d'utilisateurs, alors que Twitter est un peu problématique actuellement... De plus, l'API de BlueSky, AT-Proto est gratuite à l'utilisation ce qui n'est pas le cas de Twitter/X avec un abonnement a plusieurs miliers de francs...
 
 Le système n'est pas encore entièrement fonctionnel mais fonctionne partiellement, permettant une vérification d'identité qui renforce la confiance entre artistes et clients.
-Il est possible aussi de vérifier si des artistes qu'on suit sur BlueSky sont présents sur CoPla mais pour l'instant cette synchronisation se fait seulement à la vérification. J'ai eu du mal à le faire après coup, par exemple periodiquement.
+Il est possible aussi de vérifier si des artistes qu'on suit sur BlueSky sont présents sur CoPla mais pour l'instant cette synchronisation se fait seulement à la vérification. J'ai eu du mal à le faire après coup, par exemple périodiquement.
 
 === Itérations sur l'interface
 
@@ -369,7 +369,7 @@ Les fonctionnalités de filtrage par prix, styles artistiques et tags ont été 
 
 Plusieurs problèmes techniques ont été identifiés. J'ai eu l'un des testeurs qui s'est amusé à essayer de casser la base de données et les entrées utilisateurs, ce qui est très utile pour moi. Selon ce testeur, les tokens de Quarkus Security n'ont pas l'air très sécurisés. C'est quelque chose à creuser lors du processus d'amélioration de l'application.
 
-Ensuite il y a eu de nombreux problèmes liés à l'interface : la bio utilisateur ne peut pas être modifiée (normale, elle n'est pas encore implémentée), le bouton de création de requête de commission n'est pas fonctionnel (normal aussi), et certains noms d'utilisateur invalides (incluant du code JavaScript) cassent l'affichage des profils même si aucune injection XSS ne se produit.
+Ensuite il y a eu de nombreux problèmes liés à l'interface : la bio utilisateur ne peut pas être modifiée (normale, elle n'est pas encore implémentée), le bouton de création de requêtes de commission n'est pas fonctionnel (normal aussi), et certains noms d'utilisateur invalides (incluant du code JavaScript) cassent l'affichage des profils même si aucune injection XSS ne se produit.
 
 L'affichage des emails sur les profils publics pose un problème de confidentialité que plusieurs utilisateurs ont souligné. Les artistes devraient pouvoir contrôler la visibilité de ces informations personnelles, de plus beaucoup d'entre eux peuvent utiliser des emails qui leakent des données personnelles (nom et prénom).
 
@@ -391,7 +391,7 @@ Pour le moment, le projet, par manque de temps, n'est pas très pérenne. Je n'a
 
 Néanmoins j'ai commencé à documenter comment mettre en place une VM, mettre en place le docker compose avec NGinx pour pouvoir faire le routage sur l'application. Un tel document est selon moi très important, surtout du fait que le projet ne risque pas de rester sur Google Cloud dans le temps avec des alternatives locales qui sont plus attrayantes (mais plus chères !!).
 
-Du côté positif, certains éléments sont déjà en place pour faciliter la maintenance future. L'utilisation de Git avec une pipeline CI/CD automatisée qui compile l'application en image Docker native et la pousse sur DockerHub constitue une base solide. Le système Watchtower surveille automatiquement les nouvelles versions et redéploie l'application, ce qui automatise une partie importante du processus de déploiement. L'architecture containerisée avec Docker Compose facilite aussi le déploiement sur n'importe quel environnement, que ce soit en local ou sur un autre fournisseur cloud.
+Du côté positif, certains éléments sont déjà en place pour faciliter la maintenance future. L'utilisation de Git avec un pipeline CI/CD automatisé qui compile l'application en image Docker native et la pousse sur DockerHub constitue une base solide. Le système Watchtower surveille automatiquement les nouvelles versions et redéploie l'application, ce qui automatise une partie importante du processus de déploiement. L'architecture containerisée avec Docker Compose facilite aussi le déploiement sur n'importe quel environnement, que ce soit en local ou sur un autre fournisseur cloud.
 
 La stack technologique choisie avec Quarkus, React et PostgreSQL représente des technologies populaires et bien documentées, ce qui faciliterait la reprise par d'autres développeurs. Le polyrepo organisé sépare clairement les préoccupations entre le rapport académique et le code de l'application elle-même. 
 
